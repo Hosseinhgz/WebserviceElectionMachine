@@ -8,10 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='../updatefish' method='post'>
-<input type='text' name='id' value='${requestScope.fish.id }'>
-<input type='text' name='breed' value='${requestScope.fish.breed }'>
-<input type='text' name='weight' value='${requestScope.fish.weight }'>
+<form action='../updatequestion' method='post'>
+<input type='text' name='id' value='${requestScope.question.id }'>
+<input type='text' name='question' value='${requestScope.question.breed }'>
 <input type='submit' name='ok' value='OK'>
 </form>
 </body>

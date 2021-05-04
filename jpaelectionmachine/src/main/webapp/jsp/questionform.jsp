@@ -8,14 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='../addfish' method='post'>
-<input type='text' name='breed' value=''>
-<input type='text' name='weight' value=''>
+<form action='../addquestion' method='post'>
+<input type='text' name='question' value=''>
 <input type='submit' name='ok' value='OK'>
 </form>
 <ol>
-<c:forEach var="fish" items="${requestScope.fishlist }">
-	<li>${fish} <a href='../deletefish?id=${fish.id}'>Delete</a> <a href='../readtoupdatefish?id=${fish.id}'>Update</a>
+<c:forEach var="question" items="${requestScope.questionlist }">
+	<li>${fish} <a href='../deletequestion?id=${fish.id}'>Delete</a> <a href='../readtoupdatefish?id=${question.id}'>Update</a>
 </c:forEach>
 </ol>
 </body>

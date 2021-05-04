@@ -82,7 +82,7 @@ public class HandleQuestion extends HttpServlet {
 		//This will be the second parameter of post method
 		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
 		
-		//Posting data (Entity<ArrayList<DogBreed>> e) to the given address
+		//Posting data (Entity<ArrayList<Question>> e) to the given address
 		List<Question> returnedList=b.post(e, genericList);
 		return returnedList;
 	}
@@ -115,7 +115,7 @@ public class HandleQuestion extends HttpServlet {
 		//This will be the second parameter of post method
 		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
 		
-		//Posting data (Entity<ArrayList<DogBreed>> e) to the given address
+		//Posting data (Entity<ArrayList<Question>> e) to the given address
 		List<Question> returnedList=b.put(e, genericList);
 		return returnedList;
 	}
@@ -130,7 +130,7 @@ public class HandleQuestion extends HttpServlet {
 		//This will be the second parameter of post method
 		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
 		
-		//Posting data (Entity<ArrayList<DogBreed>> e) to the given address
+		//Posting data (Entity<ArrayList<Question>> e) to the given address
 		List<Question> returnedList=b.delete(genericList);
 		return returnedList;
 	}
