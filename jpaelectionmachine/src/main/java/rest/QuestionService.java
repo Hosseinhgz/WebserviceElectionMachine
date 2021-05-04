@@ -28,7 +28,7 @@ public class QuestionService {
 	public List<Question> readQuestion() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Question> list=em.createQuery("select q from Question q").getResultList();		
+		List<Question> list=em.createQuery("select a from Question a").getResultList();		
 		em.getTransaction().commit();
 		return list;
 	}	

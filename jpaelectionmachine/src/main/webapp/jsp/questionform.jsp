@@ -5,17 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="../CSS/style.css" rel="stylesheet">
+
 <title>Insert title here</title>
 </head>
 <body>
+<div class="form-container">
+<h1>Edit Questions</h1>
 <form action='../addquestion' method='post'>
 <input type='text' name='question' value=''>
-<input type='submit' name='ok' value='OK'>
+<input class="submit-button" type='submit' name='ok' value='OK'>
 </form>
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist }">
-	<li>${fish} <a href='../deletequestion?id=${fish.id}'>Delete</a> <a href='../readtoupdatefish?id=${question.id}'>Update</a>
+	<li>${question} <button class="submit-button"><a href='../deletequestion?id=${question.id}'>Delete</a></button> <button class="submit-button">
+	<a href='../readtoupdatequestion?id=${question.id}'>Update</a></button>
 </c:forEach>
 </ol>
+</div>
 </body>
 </html>

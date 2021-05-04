@@ -22,6 +22,10 @@ public class Question {
 		this.id=id;
 		this.question=question;
 	}
+	public Question(String id, String question) {
+		this.id=Integer.parseInt(id);
+		this.question=question;
+	}
 
 
 	
