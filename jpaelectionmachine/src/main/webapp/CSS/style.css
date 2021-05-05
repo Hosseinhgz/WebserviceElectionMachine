@@ -63,7 +63,7 @@ h1{
   background-color: aliceblue;
 }
 
-#addquestion{
+.questionbox{
 	width:80%;
 	height:1.4rem;
 	margin-left:10px;

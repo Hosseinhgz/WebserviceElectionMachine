@@ -14,7 +14,7 @@
 <div class="form-container">
 
 <form action='../addquestion' method='post'>
-	<input type='text' id="addquestion" name='question' value=''>
+	<input type='text' class="questionbox" name='question' value=''>
 	<input class="submit-button" type='submit' name='ok' value='OK'>
 </form>
 <ol>

@@ -40,7 +40,6 @@ public class HandleQuestion extends HttpServlet {
 	  case "/addquestion":
 		  list=addquestion(request);break;
 	  case "/deletequestion":
-		  String id=request.getParameter("id");
 		  list=deletequestion(request);break;
 	  case "/updatequestion":
 		  list=updatequestion(request);break;

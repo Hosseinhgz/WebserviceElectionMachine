@@ -46,7 +46,7 @@ public class HandleAnswer extends HttpServlet {
 		  list=updateanswer(request);break;
 	  case "/readanswer":
 		  list=readanswer(request);break;
-	  case "/saveanswer":
+	  case "/saveanswers":
 		  list=saveanswers(request);break;
 	  case "/readtoupdateanswer":
 		  Answer q=readtoupdateanswer(request);

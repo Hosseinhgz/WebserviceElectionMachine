@@ -15,7 +15,6 @@
 
 <form action="../saveanswers" method='post'>
 	<ol>
-	<c:forEach var="question" items="${requestScope.questionlist }">
 		<li>${question.question} 
 		   <div class="radio-buttons">
                <input type="radio" Class="recommend-radio" name="${question.id}" value="1">
@@ -31,7 +30,6 @@
            </div>
            <p></p>
            <hr>
-	</c:forEach>
 	</ol>
      <div class="buttons">
         <button id="reset" class="button"  name="action">Reset</button>
