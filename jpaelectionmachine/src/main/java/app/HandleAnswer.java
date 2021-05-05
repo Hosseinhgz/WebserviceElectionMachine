@@ -129,6 +129,7 @@ public class HandleAnswer extends HttpServlet {
 		EntityManager em=emf.createEntityManager();
 		for (int i = 0;i<=19;i++) {		
 			Answer q=new Answer(request.getParameter(""+i));
+			System.out.print(q.getAnswer());
 			if(q.getAnswer()>0) {
 				System.out.println(q);
 				answers.add(q);

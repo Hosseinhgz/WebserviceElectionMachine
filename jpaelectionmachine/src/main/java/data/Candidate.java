@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Table(name="candidates")
 @NamedQuery(name="Candidate.findAll", query="SELECT c FROM Candidate c")
 public class Candidate implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -38,9 +39,25 @@ public class Candidate implements Serializable {
 	@Column(name="WHY_COMMISSION")
 	private String whyCommission;
 
+	
+	// Constructors
 	public Candidate() {
 	}
 
+	public Candidate(int id, String firstName, String surname) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.surname = surname;
+	}
+	public Candidate(String id, String firstName, String surname) {
+		super();
+		this.id = Integer.parseInt(id);
+		this.firstName = firstName;
+		this.surname = surname;
+	}
+	
+	// getters and setters
 	public int getId() {
 		return this.id;
 	}
