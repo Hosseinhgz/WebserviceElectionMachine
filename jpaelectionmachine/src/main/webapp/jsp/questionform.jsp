@@ -10,16 +10,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="form-container">
 <h1>Edit Questions</h1>
+<div class="form-container">
+
 <form action='../addquestion' method='post'>
-<input type='text' name='question' value=''>
-<input class="submit-button" type='submit' name='ok' value='OK'>
+	<input type='text' id="addquestion" name='question' value=''>
+	<input class="submit-button" type='submit' name='ok' value='OK'>
 </form>
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist }">
-	<li>${question} <button class="submit-button"><a href='../deletequestion?id=${question.id}'>Delete</a></button> <button class="submit-button">
-	<a href='../readtoupdatequestion?id=${question.id}'>Update</a></button>
+	<li>${question.question} <a href='../deletequestion?id=${question.id}'><button class="submit-button">Delete</button></a> 
+	<a href='../readtoupdatequestion?id=${question.id}'><button class="submit-button">Update</button></a>
 </c:forEach>
 </ol>
 </div>

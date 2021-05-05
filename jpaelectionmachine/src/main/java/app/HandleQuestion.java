@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
 
 import data.Question;
 
-@WebServlet(urlPatterns = {"/addquestion", "/deletequestion","/updatequestion","/readquestion","/readtoupdatequestion"})
+@WebServlet(urlPatterns = {"/addquestion", "/deletequestion","/updatequestion","/readquestion","/readtoupdatequestion","/showquestion"})
 public class HandleQuestion extends HttpServlet {
 
 	  @Override
@@ -46,6 +46,12 @@ public class HandleQuestion extends HttpServlet {
 		  list=updatequestion(request);break;
 	  case "/readquestion":
 		  list=readquestion(request);break;
+	  case "/showquestion":
+		  list=readquestion(request);
+		  request.setAttribute("questionlist", list);
+		  RequestDispatcher rd2=request.getRequestDispatcher("./jsp/showquestion.jsp");
+		  rd2.forward(request, response);
+		  break;
 	  case "/readtoupdatequestion":
 		  Question q=readtoupdatequestion(request);
 		  request.setAttribute("question", q);
@@ -55,6 +61,7 @@ public class HandleQuestion extends HttpServlet {
 	  }
 	  request.setAttribute("questionlist", list);
 	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/questionform.jsp");
+
 	  rd.forward(request, response);
   }
 

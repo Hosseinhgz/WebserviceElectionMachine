@@ -17,7 +17,7 @@ public class Candidate implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="CANDIDATE_ID")
-	private int candidateId;
+	private int id;
 
 	@Column(name="FIRST_NAME")
 	private String firstName;
@@ -41,12 +41,15 @@ public class Candidate implements Serializable {
 	public Candidate() {
 	}
 
-	public int getCandidateId() {
-		return this.candidateId;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setCandidateId(int candidateId) {
-		this.candidateId = candidateId;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setId(String id) {
+		this.id = Integer.parseInt(id);
 	}
 
 	public String getFirstName() {

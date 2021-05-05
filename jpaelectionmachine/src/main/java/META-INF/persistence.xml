@@ -3,6 +3,8 @@
 	<persistence-unit name="jpaelectionmachine">
 		<class>data.Question</class>
 		<class>data.Candidate</class>
+		<class>data.Answer</class>
+		<class>data.Admin</class>
 		
 		<properties>
 		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

@@ -16,75 +16,75 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.Question;
+import data.Candidate;
 
-@Path("/questionservice")
-public class QuestionService {
+@Path("/candidateservice")
+public class CandidateService {
 	EntityManagerFactory emf=Persistence.createEntityManagerFactory("jpaelectionmachine");// name of project which is mentioned in persistence
 	@GET
-	@Path("/readquestion")
+	@Path("/readcandidate")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Question> readQuestion() {
+	public List<Candidate> readCandidate() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Question> list=em.createQuery("select a from Question a").getResultList();		
+		List<Candidate> list=em.createQuery("select a from Candidate a").getResultList();		
 		em.getTransaction().commit();
 		return list;
 	}	
 	@POST
-	@Path("/addquestion")
+	@Path("/addcandidate")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Question> addQuestion(Question question) {
+	public List<Candidate> addCandidate(Candidate candidate) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(question);//The actual insertion line
+		em.persist(candidate);//The actual insertion line
 		em.getTransaction().commit();
-		//Calling the method readQuestion() of this service
-		List<Question> list=readQuestion();		
+		//Calling the method readCandidate() of this service
+		List<Candidate> list=readCandidate();		
 		return list;
 	}	
 	@PUT
-	@Path("/updatequestion")
+	@Path("/updatecandidate")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Question> updateQuestion(Question question) {
+	public List<Candidate> updateCandidate(Candidate candidate) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Question q=em.find(Question.class, question.getId());
+		Candidate q=em.find(Candidate.class, candidate.getId());
 		if (q!=null) {
-			em.merge(question);//The actual update line
+			em.merge(candidate);//The actual update line
 		}
 		em.getTransaction().commit();
-		//Calling the method readQuestion() of this service
-		List<Question> list=readQuestion();		
+		//Calling the method readCandidate() of this service
+		List<Candidate> list=readCandidate();		
 		return list;
 	}	
 	@DELETE
-	@Path("/deletequestion/{id}")
+	@Path("/deletecandidate/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Question> deleteQuestion(@PathParam("id") int id) {
+	public List<Candidate> deleteCandidate(@PathParam("id") int id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Question q=em.find(Question.class, id);
+		Candidate q=em.find(Candidate.class, id);
 		if (q!=null) {
 			em.remove(q);//The actual insertion line
 		}
 		em.getTransaction().commit();
-		//Calling the method readQuestion() of this service
-		List<Question> list=readQuestion();		
+		//Calling the method readCandidate() of this service
+		List<Candidate> list=readCandidate();		
 		return list;
 	}	
 	@GET
-	@Path("/readtoupdatequestion/{id}")
+	@Path("/readtoupdatecandidate/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Question readToUpdateQuestion(@PathParam("id") int id) {
+	public Candidate readToUpdateCandidate(@PathParam("id") int id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Question q=em.find(Question.class, id);
+		Candidate q=em.find(Candidate.class, id);
 		em.getTransaction().commit();
 		return q;
 	}	
