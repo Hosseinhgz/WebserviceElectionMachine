@@ -20,7 +20,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-import data.Answer;
+import model.Answer;
 
 @WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/readtoupdateanswer","/saveanswers"})
 public class HandleAnswer extends HttpServlet {

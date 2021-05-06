@@ -20,7 +20,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-import data.Candidate;
+import model.Candidate;
 
 @WebServlet(urlPatterns = {"/addcandidate", "/deletecandidate","/updatecandidate","/readcandidate","/readtoupdatecandidate","/showcandidate"})
 public class HandleCandidate extends HttpServlet {
@@ -76,7 +76,7 @@ public class HandleCandidate extends HttpServlet {
 
 	private List<Candidate> addcandidate(HttpServletRequest request) {
 		//A Candidate object to send to our web-service 
-		Candidate f=new Candidate(request.getParameter("id"),request.getParameter("firstname"), request.getParameter("surname"));
+		Candidate f=new Candidate(request.getParameter("id"), request.getParameter("surname"),request.getParameter("firstname"));
 		System.out.println(f);
 		String uri = "http://127.0.0.1:8080/rest/candidateservice/addcandidate";
 		Client c=ClientBuilder.newClient();

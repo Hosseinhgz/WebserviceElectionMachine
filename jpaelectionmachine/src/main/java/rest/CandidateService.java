@@ -16,7 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.Candidate;
+import model.Candidate;
 
 @Path("/candidateservice")
 public class CandidateService {
@@ -28,7 +28,7 @@ public class CandidateService {
 	public List<Candidate> readCandidate() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Candidate> list=em.createQuery("select a from Candidates a").getResultList();		
+		List<Candidate> list=em.createQuery("select a from Candidate a").getResultList();		
 		em.getTransaction().commit();
 		return list;
 	}	

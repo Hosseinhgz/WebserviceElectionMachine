@@ -16,7 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.Answer;
+import model.Answer;
 
 @Path("/answerservice")
 public class AnswerService {

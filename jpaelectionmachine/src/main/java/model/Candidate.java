@@ -1,28 +1,23 @@
-package data;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
 
 /**
- * The persistent class for the candidates database table.
+ * The persistent class for the candidate database table.
  * 
  */
 @Entity
-@Table(name="candidates")
 @NamedQuery(name="Candidate.findAll", query="SELECT c FROM Candidate c")
 public class Candidate implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
-	// Variables*************************************************************start
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CANDIDATE_ID")
 	private int id;
 
-	@Column(name="FIRST_NAME")
-	private String firstName;
+	private String firstname;
 
 	private int ika;
 
@@ -39,40 +34,23 @@ public class Candidate implements Serializable {
 
 	@Column(name="WHY_COMMISSION")
 	private String whyCommission;
-	// Variables*************************************************************end
 
-	
-	// Constructors*************************************************************start
 	public Candidate() {
 	}
-	public Candidate(int id, String firstName, String surname) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.surname = surname;
-	}
-	public Candidate(String id, String firstName, String surname) {
-		super();
-		this.id = Integer.parseInt(id);
-		this.firstName = firstName;
-		this.surname = surname;
-	}
-	public Candidate(int id, String firstName, int ika, String location, String party, String professional,
-			String surname, String whatAthesWantEdes, String whyCommission) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.ika = ika;
-		this.location = location;
-		this.party = party;
-		this.professional = professional;
-		this.surname = surname;
-		this.whatAthesWantEdes = whatAthesWantEdes;
-		this.whyCommission = whyCommission;
-	}
-	// Constructors*************************************************************end
 
-	// getters and setters******************************************************start
+	public Candidate(String id, String surname, String firstname) {
+		// TODO Auto-generated constructor stub
+		this.id = Integer.parseInt(id);
+		this.surname=surname;
+		this.firstname=firstname;
+	}
+	public Candidate(int id, String surname, String firstname) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.surname=surname;
+		this.firstname=firstname;
+	}
+
 	public int getId() {
 		return this.id;
 	}
@@ -80,16 +58,13 @@ public class Candidate implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setId(String id) {
-		this.id = Integer.parseInt(id);
+
+	public String getFirstname() {
+		return this.firstname;
 	}
 
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public int getIka() {
@@ -147,6 +122,5 @@ public class Candidate implements Serializable {
 	public void setWhyCommission(String whyCommission) {
 		this.whyCommission = whyCommission;
 	}
-	// getters and setters******************************************************end
 
 }
