@@ -15,6 +15,7 @@ public class Candidate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	// Variables*************************************************************start
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="CANDIDATE_ID")
@@ -38,12 +39,12 @@ public class Candidate implements Serializable {
 
 	@Column(name="WHY_COMMISSION")
 	private String whyCommission;
+	// Variables*************************************************************end
 
 	
-	// Constructors
+	// Constructors*************************************************************start
 	public Candidate() {
 	}
-
 	public Candidate(int id, String firstName, String surname) {
 		super();
 		this.id = id;
@@ -56,8 +57,22 @@ public class Candidate implements Serializable {
 		this.firstName = firstName;
 		this.surname = surname;
 	}
-	
-	// getters and setters
+	public Candidate(int id, String firstName, int ika, String location, String party, String professional,
+			String surname, String whatAthesWantEdes, String whyCommission) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.ika = ika;
+		this.location = location;
+		this.party = party;
+		this.professional = professional;
+		this.surname = surname;
+		this.whatAthesWantEdes = whatAthesWantEdes;
+		this.whyCommission = whyCommission;
+	}
+	// Constructors*************************************************************end
+
+	// getters and setters******************************************************start
 	public int getId() {
 		return this.id;
 	}
@@ -132,5 +147,6 @@ public class Candidate implements Serializable {
 	public void setWhyCommission(String whyCommission) {
 		this.whyCommission = whyCommission;
 	}
+	// getters and setters******************************************************end
 
 }

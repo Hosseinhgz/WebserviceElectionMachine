@@ -94,7 +94,7 @@ public class HandleQuestion extends HttpServlet {
 	}
 	
 	private List<Question> readquestion(HttpServletRequest request) {
-		String id=request.getParameter("id");
+		//String id=request.getParameter("id");
 		String uri = "http://127.0.0.1:8080/rest/questionservice/readquestion";
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
