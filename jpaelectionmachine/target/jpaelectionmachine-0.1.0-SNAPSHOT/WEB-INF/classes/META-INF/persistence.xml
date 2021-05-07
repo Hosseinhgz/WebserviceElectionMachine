@@ -5,6 +5,7 @@
 		<class>data.Admin</class>
 		<class>model.Answer</class>
 		<class>model.Candidate</class>
+		<class>model.Candidateanswer</class>
 		
 		<properties>
 		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

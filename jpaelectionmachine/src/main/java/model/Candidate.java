@@ -16,24 +16,22 @@ public class Candidate implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
-	private String firstname;
-
-	private int ika;
-
-	private String location;
-
-	private String party;
-
-	private String professional;
-
 	private String surname;
-
-	@Column(name="WHAT_ATHES_WANT_EDES")
-	private String whatAthesWantEdes;
+	private String firstname;
+	private String party;
+	private String location;
+	private int ika;
 
 	@Column(name="WHY_COMMISSION")
 	private String whyCommission;
+	
+	@Column(name="WHAT_ATHES_WANT_EDES")
+	private String whatAthesWantEdes;
+	
+	private String professional;
+
+
+
 
 	public Candidate() {
 	}
@@ -51,6 +49,42 @@ public class Candidate implements Serializable {
 		this.firstname=firstname;
 	}
 
+	public Candidate(int id, String surname, String firstname , String party,  String location, int ika, String whyCommission,
+			 String whatAthesWantEdes, String professional) {
+		this.id = id;
+		this.firstname = firstname;
+		this.ika = ika;
+		this.location = location;
+		this.party = party;
+		this.professional = professional;
+		this.surname = surname;
+		this.whatAthesWantEdes = whatAthesWantEdes;
+		this.whyCommission = whyCommission;
+	}
+	public Candidate(String id, String surname, String firstname , String party,  String location, String ika, String whyCommission,
+			 String whatAthesWantEdes, String professional) {
+		this.id = Integer.parseInt(id);
+		this.firstname = firstname;
+		this.ika = Integer.parseInt(ika);
+		this.location = location;
+		this.party = party;
+		this.professional = professional;
+		this.surname = surname;
+		this.whatAthesWantEdes = whatAthesWantEdes;
+		this.whyCommission = whyCommission;
+	}
+	public Candidate(String surname, String firstname , String party,  String location, String ika, String whyCommission,
+			 String whatAthesWantEdes, String professional) {
+		this.firstname = firstname;
+		this.ika = Integer.parseInt(ika);
+		this.location = location;
+		this.party = party;
+		this.professional = professional;
+		this.surname = surname;
+		this.whatAthesWantEdes = whatAthesWantEdes;
+		this.whyCommission = whyCommission;
+	}
+	
 	public int getId() {
 		return this.id;
 	}

@@ -13,7 +13,7 @@
 <div class="form-container">
 <h1>Update the  question ${requestScope.question.id}</h1>
 <form action='../updatequestion?id=${question.id}' method='post'>
-<div>${requestScope.question.id }.
+<div>${requestScope.question.id } .
 <input type='text' name='question' class="questionbox" value='${requestScope.question.question }'>
 <input class="submit-button" type='submit' name='ok' value='OK'></div>
 </form>
