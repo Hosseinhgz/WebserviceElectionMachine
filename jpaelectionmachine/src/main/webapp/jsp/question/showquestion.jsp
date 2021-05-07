@@ -13,29 +13,25 @@
 <h1>Questionnaire</h1>
 <div class="form-container">
 
-<form action="../saveanswers?id=${question.id}" method='get'>
-	<ol>
-	<c:forEach var="question" items="${requestScope.questionlist }">
-		<li>${question.question} 
-		   <div class="radio-buttons">
-               <input type="radio" Class="recommend-radio" name="q${question.id}" value="1">
-               <label id="definitely">Definitely Agree</label><br>
-               <input type="radio" Class="recommend-radio" name="q${question.id}" value="2">
-               <label id="maybe">Agree</label><br>
-               <input type="radio" Class="recommend-radio" name="q${question.id}" value="3" checked>
-               <label id="not-sure">Middle opinion</label><br>
-               <input type="radio" Class="recommend-radio" name="q${question.id}" value="4">
-               <label id="not-sure">Disagree</label><br>
-               <input type="radio" Class="recommend-radio" name="q${question.id}" value="5">
-               <label id="not-sure">Completely disagree</label><br>
-           </div>
-           <p></p>
-           <hr>
-	</c:forEach>
-	</ol>
+<form action="../updateanswer?id=1" method='post'>
+
+		<input type="hidden" Class="recommend-radio" name="id" value="1">
+	   <div class="radio-buttons">
+              <input type="radio" Class="recommend-radio" name="answer" value="1">
+              <label id="definitely">Definitely Agree</label><br>
+              <input type="radio" Class="recommend-radio" name="answer" value="2">
+              <label id="maybe">Agree</label><br>
+              <input type="radio" Class="recommend-radio" name="answer" value="3">
+              <label id="not-sure">Middle opinion</label><br>
+              <input type="radio" Class="recommend-radio" name="answer" value="4">
+              <label id="not-sure">Disagree</label><br>
+              <input type="radio" Class="recommend-radio" name="answer" value="5">
+              <label id="not-sure">Completely disagree</label><br>
+          </div>
+
      <div class="buttons">
         <button id="reset" class="button"  name="action">Reset</button>
-     	<button id="finish" class="button" type="submit"  name="action">Finish</button>
+     	<button id="finish" class="button" type="submit"  name='ok' value='OK'>Finish</button>
      </div>	
 </form>
 </div>
