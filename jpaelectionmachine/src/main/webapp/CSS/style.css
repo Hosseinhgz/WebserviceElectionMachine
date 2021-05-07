@@ -1,12 +1,26 @@
 body {
 
-margin:20px auto;
-  background-color: rgb(25, 49, 70);
+margin:10px auto;
+	  background-color: rgb(25, 49, 70) !important;
   width:100vw;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-size: cover;
-  color: rgb(238, 214, 170);
+  color: rgb(238, 214, 170) !important;
   text-align: center;
+}
+main{
+	  background-color: rgb(25, 49, 70) !important;
+	  color: rgb(238, 214, 170) !important;
+	
+}
+.navbar {
+	display:flex;
+  background-color: #f76c6c !important;
+  width: 100%;
+  color: #ffffff !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: flex-end;
 }
 h1{
 	width:100%;
@@ -17,6 +31,19 @@ h1{
   text-align: left;
   margin: 20px auto;
   border-radius: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 20px;
+    
+  
+}
+.form-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(60, 72, 77, 0.85);
+  width: 100vw;
+  text-align: center;
+  margin: 20px auto;
   padding: 20px;
 }
 .container {
@@ -26,6 +53,22 @@ h1{
   margin: 20px auto;
   border-radius: 10px;
   padding: 20px;
+}
+.question-container{
+  background-color: #f8e9a1;
+  color: #374785;
+  border-radius: 15px;
+  margin:10px auto;
+  text-align: left;
+margin-right:50px;
+height:50px;
+ }
+.question-container li {
+  padding: 10px;
+  margin-left:30px
+}
+hr {
+	border:1px dashed #f8e9a1;
 }
 .question-text{
 	padding:15px;
@@ -62,13 +105,29 @@ h1{
   color: rgb(51, 143, 92);
   background-color: aliceblue;
 }
+.botton:hover {
+  color: rgb(51, 143, 92);
+  background-color: aliceblue;
+}
 
+.candidate_form{
+  text-align: center;
+}
 .questionbox{
 	width:80%;
 	height:1.4rem;
-	margin-left:10px;
+	margin:10px auto;
 	border-radius:5px;
-	
+	padding:5px;
+	padding-left:10px;
+}
+.candidatebox{
+	height:1.4rem;
+	margin:10px auto;
+	border-radius:5px;
+	padding:5px;
+	padding-left:10px;
+  width: fit-content;
 }
 .textfield{
 	
@@ -76,5 +135,154 @@ h1{
 	height:1.6rem;
 	margin-bottom:10px;
 	border-radius:5px;	
+}
 
+#projects {
+  display: flex;
+  background-color: #24305e;
+  margin: 0px auto;
+  width: 90%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: flex-start;
+}
+.project_cards {
+  background-color: #f8e9a1;
+  color: black;
+border-radius: 0px 0px 30px 30px;
+  margin: 10px;
+  width: 400px;
+  height: 600px;
+}
+.add-candidate{
+	  background-color: #fa9898;
+  color: #374785 ;
+  border:solid 0px;
+border-radius: 0px 0px 30px 30px;
+  margin: 20px auto;
+  width: 70%;
+}
+.form_cards {
+  background-color: #99060a;
+  color: black;
+border-radius: 0px 0px 30px 30px;
+  margin: 10px;
+  width: 70vm;
+    text-align: center;
+  
+}
+.card-describe {
+  padding: 15px;
+}
+.card-header {
+  text-align: center;
+  background-color: #a8d0e6;
+  color: #24305e;
+}
+.info-img{
+	margin:10px auto;
+	text-align:center;
+	margin-bottom:20px;
+}
+#welcom-h1 {
+  animation-name: motionh1;
+  animation-duration: 3s;
+  position: relative;
+}
+#welcom-h3 {
+  animation-name: motionh3;
+  animation-duration: 3s;
+}
+@keyframes motionh1 {
+  0% {
+    color: rgba(255, 255, 255, 0);
+    top: -80px;
+  }
+
+  70% {
+    color: rgba(255, 255, 255, 0.8);
+    top: -20px;
+  }
+  100% {
+    color: rgba(255, 255, 255, 1);
+    top: 0px;
+  }
+}
+@keyframes motionh3 {
+  0% {
+    color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+#about-section {
+  background-color: #a8d0b6;
+  width: 80%;
+  color: black;
+  margin: 30px auto;
+  padding: 20px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
+#about-p {
+  margin: 10px auto;
+  width: 60%;
+  text-align: justify;
+}
+footer {
+  background-color: #24305e;
+  color: #ffffff;
+  padding: 15px;
+}
+#link {
+  display: flex;
+  justify-content: center;
+}
+#profile-link button {
+  width: 200px;
+  height: 50px;
+  margin: 20px auto;
+  background-color: #f76c6c;
+  border: 1px solid #24305e;
+  border-radius: 10px;
+  color: #24305e;
+}
+#profile-link button:hover {
+  width: 200px;
+  height: 50px;
+  background-color: #a8d0e6;
+  border: 1px solid #24305e;
+  border-radius: 10px;
+  color: #24305e;
+}
+@media only screen and (max-width: 600px) {
+  #about-section {
+    width: 95%;
+    padding: 10px;
+    background-color: #24305e;
+    color: #ffffff;
+  }
+  #projects {
+    background-color: #24305e;
+    margin: 0px auto;
+    width: 120%;
+    padding: 0px;
+    margin-left: -25px;
+  }
+  #about-p {
+    margin: 10px auto;
+    width: 95%;
+  }
+  .project_cards {
+    background-color: #f8e9a1;
+    color: black;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 400px;
+    height: 550px;
+  }
 }

@@ -48,18 +48,18 @@ public class HandleQuestion extends HttpServlet {
 	  case "/showquestion":
 		  list=readquestion(request);
 		  request.setAttribute("questionlist", list);
-		  RequestDispatcher rd2=request.getRequestDispatcher("./jsp/showquestion.jsp");
+		  RequestDispatcher rd2=request.getRequestDispatcher("./jsp/question/showquestion.jsp");
 		  rd2.forward(request, response);
 		  break;
 	  case "/readtoupdatequestion":
 		  Question q=readtoupdatequestion(request);
 		  request.setAttribute("question", q);
-		  RequestDispatcher rd=request.getRequestDispatcher("./jsp/questiontoupdateform.jsp");
+		  RequestDispatcher rd=request.getRequestDispatcher("./jsp/question/questiontoupdateform.jsp");
 		  rd.forward(request, response);
 		  return;
 	  }
 	  request.setAttribute("questionlist", list);
-	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/questionform.jsp");
+	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/question/questionform.jsp");
 
 	  rd.forward(request, response);
   }

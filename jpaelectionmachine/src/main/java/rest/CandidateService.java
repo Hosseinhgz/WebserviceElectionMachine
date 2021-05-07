@@ -16,7 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import data.Candidate;
+import model.Candidate;
 
 @Path("/candidateservice")
 public class CandidateService {

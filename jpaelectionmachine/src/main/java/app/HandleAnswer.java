@@ -20,7 +20,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-import data.Answer;
+import model.Answer;
 
 @WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/readtoupdateanswer","/saveanswers"})
 public class HandleAnswer extends HttpServlet {
@@ -46,8 +46,8 @@ public class HandleAnswer extends HttpServlet {
 		  list=updateanswer(request);break;
 	  case "/readanswer":
 		  list=readanswer(request);break;
-	  case "/saveanswers":
-		  list=saveanswers(request);break;
+	  //case "/saveanswers":
+		 // list=saveanswers(request);break;
 	  case "/readtoupdateanswer":
 		  Answer q=readtoupdateanswer(request);
 		  request.setAttribute("answer", q);
@@ -56,7 +56,7 @@ public class HandleAnswer extends HttpServlet {
 		  return;
 	  }
 	  request.setAttribute("answerlist", list);
-	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/finalanswers.jsp");
+	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/question/showquestion.jsp");
 	  rd.forward(request, response);
   }
 
@@ -122,31 +122,31 @@ public class HandleAnswer extends HttpServlet {
 		return returnedList;
 	}
 	
-	private List<Answer> saveanswers(HttpServletRequest request) {
-		//A Answer object to send to our web-service 
-		ArrayList<Answer> answers = new ArrayList<Answer>();
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("jpaelectionmachine");
-		EntityManager em=emf.createEntityManager();
-		for (int i = 0;i<=19;i++) {		
-			Answer q=new Answer(request.getParameter(""+i));
-			System.out.print(q.getAnswer());
-			if(q.getAnswer()>0) {
-				System.out.println(q);
-				answers.add(q);
-				em.getTransaction().begin();
-				em.persist(q);
-				em.getTransaction().commit();
-				
-			}else {
-				Answer q1=new Answer(0);
-				answers.add(q1);
-				em.getTransaction().begin();
-				em.persist(q1);
-				em.getTransaction().commit();
-			}
-		}
-		return answers;
-	}
+//	private List<Answer> saveanswerss(HttpServletRequest request) {
+//		//A Answer object to send to our web-service 
+//		ArrayList<Answer> answers = new ArrayList<Answer>();
+//		EntityManagerFactory emf=Persistence.createEntityManagerFactory("jpaelectionmachine");
+//		EntityManager em=emf.createEntityManager();
+//		for (int i = 0;i<=19;i++) {		
+//			Answer q=new Answer(request.getParameter(""+i));
+//			System.out.print(q.getAnswer());
+//			if(q.getAnswer()>0) {
+//				System.out.println(q);
+//				answers.add(q);
+//				em.getTransaction().begin();
+//				em.persist(q);
+//				em.getTransaction().commit();
+//				
+//			}else {
+//				Answer q1=new Answer(0);
+//				answers.add(q1);
+//				em.getTransaction().begin();
+//				em.persist(q1);
+//				em.getTransaction().commit();
+//			}
+//		}
+//		return answers;
+//	}
 	
 	private List<Answer> deleteanswer(HttpServletRequest request) {
 		String id=request.getParameter("id");
