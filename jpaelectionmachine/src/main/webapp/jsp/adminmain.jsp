@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
@@ -32,22 +35,10 @@
    </header>
 	<main>
 	  <div class="container">
-	  	<img src="../images/elections-icon.png" alt="election icon" style="width:100px;height:100px;">
-	  
-	    <h1>Welcome to Election machine</h1>
-	    <p>Path to Choose wise</p>
-	    
+	    <h1>Admin page</h1>
 		<a href="../showcandidate"><button class="button" type="button">Candidates</button></a>
-		<a href="../showquestion"><button class="button" type="button">Questionnaire</button></a>
-	
-	    <table>
-	      <tr>
-	        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-	      </tr>
-	      <tr>
-	        <td><a href='/addquestion'>The servlet</a></td>
-	      </tr>
-	    </table>
+		<a href="../showquestion"><button class="button" type="button">Questions</button></a>
+
 	 </div>
 </main>
 </body>

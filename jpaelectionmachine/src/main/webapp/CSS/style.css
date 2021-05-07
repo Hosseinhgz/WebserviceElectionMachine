@@ -34,14 +34,28 @@ h1{
   padding-left: 20px;
   padding-top: 10px;
   padding-right: 20px;
-    
-  
+} 
+.part1 {
+  margin-top: 10px;
+  border: hidden;
+}  
+
+.login-field {
+  background-color: aliceblue;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 2.1rem;
+  border-radius: 3px;
+  border: hidden;
+  padding:15px;
 }
+
 .form-container2 {
   display: flex;
   flex-wrap: wrap;
   background: rgba(60, 72, 77, 0.85);
-  width: 100vw;
+  width: 95vw;
+border-radius:10px;
   text-align: center;
   margin: 20px auto;
   padding: 20px;
@@ -49,10 +63,11 @@ h1{
 .container {
   background: rgba(60, 72, 77, 0.85);
   width: 80vw;
+    height: 80vh;
   text-align: center;
   margin: 20px auto;
   border-radius: 10px;
-  padding: 20px;
+  padding-top: 10vh;
 }
 .question-container{
   background-color: #f8e9a1;
@@ -69,6 +84,10 @@ height:50px;
 }
 hr {
 	border:1px dashed #f8e9a1;
+}
+.hr{
+		border:1px dashed #f8e9a1;
+	
 }
 .question-text{
 	padding:15px;
