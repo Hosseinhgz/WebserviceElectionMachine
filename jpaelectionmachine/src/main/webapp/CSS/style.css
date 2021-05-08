@@ -5,8 +5,6 @@ margin:10px auto;
 	  background-image: url('../images/background.jpg');
 	    background-repeat: no-repeat;
   background-attachment: fixed;
-  
-  width:100vw;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-size: cover;
   color: rgb(238, 214, 170) !important;
@@ -35,6 +33,7 @@ h1{
   padding-top: 10px;
   padding-right: 20px;
 } 
+
 .part1 {
   margin-top: 10px;
   border: hidden;
@@ -75,8 +74,7 @@ border-radius:10px;
   border-radius: 15px;
   margin:10px auto;
   text-align: left;
-margin-right:50px;
-height:50px;
+height:62px;
  }
 .question-container li {
   padding: 10px;
@@ -114,7 +112,31 @@ hr {
   text-align: center;
   background-color: rgb(92, 216, 148);
   width: 100px;
-  height: 1.6rem;
+  height: 1.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  border: hidden;
+  text-decoration:none;
+}
+.submit-button-update {
+  color: #f8e9a1;
+  margin: 10px;
+  text-align: center;
+  background-color: #1e5f8a;
+  width: 85px;
+  height: 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  border: hidden;
+  text-decoration:none;
+}
+.submit-button-delete{
+  color: #f8e9a1;
+  margin: 10px;
+  text-align: center;
+  background-color: #942626;
+  width: 85px;
+  height: 2rem;
   border-radius: 5px;
   font-weight: bold;
   border: hidden;
@@ -142,7 +164,12 @@ hr {
 }
 
 .candidate_form{
+	color: #24305e;
+	padding: 20px;
+	display:flex;
   text-align: center;
+      flex-wrap: wrap;
+  
 }
 .candidates-info{
 	
@@ -197,12 +224,12 @@ border-radius: 0px 0px 30px 30px;
   height: 600px;
 }
 .add-candidate{
-	  background-color: #fa9898;
-  color: #374785 ;
+  background-color: #f76c6c;
+  color: #24305e ;
   border:solid 0px;
-border-radius: 0px 0px 30px 30px;
+border-radius:30px;
   margin: 20px auto;
-  width: 70%;
+  width: 68%;
 }
 .form_cards {
   background-color: #99060a;

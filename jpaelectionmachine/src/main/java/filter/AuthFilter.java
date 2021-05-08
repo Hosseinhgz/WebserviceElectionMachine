@@ -27,7 +27,8 @@ import javax.servlet.http.HttpSession;
 				"/jsp/question/questiontoupdateform.jsp","/jsp/candidate/candidateform.jsp","/jsp/candidate/candidatetoupdateform.jsp",
 				"/rest/candidateservice/deletecandidate","/rest/candidateservice/updatecandidate",
 				"/rest/candidateservice/readtoupdatecandidate","/rest/questionservice/updatequestion",
-				"/rest/questionservice/readtoupdatequestion","/rest/questionservice/deletequestion", })
+				"/rest/questionservice/readtoupdatequestion","/rest/questionservice/deletequestion",
+				"/rest/questionservice/addquestion","/addquestion","/addcandidate","/rest/candidateservice/addcandidate",})
 public class AuthFilter implements Filter {
 
     /**
