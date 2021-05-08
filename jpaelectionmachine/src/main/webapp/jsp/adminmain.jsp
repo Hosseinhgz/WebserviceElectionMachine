@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
+                  <a class="nav-link" aria-current="page" href='/checkuser?logout=yes'>Log out</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#project-title">Statistics</a>
@@ -36,8 +36,9 @@
 	<main>
 	  <div class="container">
 	    <h1>Admin page</h1>
-		<a href="../showcandidate"><button class="button" type="button">Candidates</button></a>
-		<a href="../showquestion"><button class="button" type="button">Questions</button></a>
+	   	<img src="../images/admin-icon.png" alt="admin icon" style="width:100px;height:100px;"><br>    
+		<a href="../readcandidate"><button class="button" type="button">Edit Candidates</button></a>
+		<a href="../readquestion"><button class="button" type="button">Edit Questions</button></a>
 
 	 </div>
 </main>

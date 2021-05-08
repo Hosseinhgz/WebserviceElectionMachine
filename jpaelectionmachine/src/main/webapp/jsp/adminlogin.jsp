@@ -36,24 +36,23 @@
 	<main>
 	
 	<div class="container">
-       <form id="survey-form">
-       	  	<img src="../images/admin-icon.png" alt="admin icon" style="width:100px;height:100px;">
+       <form id="survey-form" action='/checkuser' method="post">
+       	  	<img src="../images/login-icon.png" alt="admin icon" style="width:100px;height:100px;">
        
           <div class="part1">
-              <div class="form-elements" >
-                  <label id="name-label" for="name"><b>Username:</b></label>
-                  <input class="login-field" type="text" placeholder="username" name="username" required>
-              </div>
-              <div class="form-elements" >
-                  <label id="name-label" for="email"><b>Password:</b></label>
-                  <input class="login-field" type="password" placeholder="Email" name="password" required>
-              </div>
-        </form>
-	
-		<a href="../index.html"><button class="button" type="button">Back</button></a>
-		<a href="../showquestion"><button class="button" type="button">Log in</button></a>
-
-	 </div>
+             <div class="form-elements" >
+                 <label id="name-label" for="username"><b>Username:</b></label>
+                 <input class="login-field" type="text" placeholder="username" name="username" required>
+             </div>
+             <div class="form-elements" >
+                 <label id="name-label" for="password"><b>Password:</b></label>
+                 <input class="login-field" type="password" placeholder="Email" name="password" required>
+             </div>
+			<a href="../index.html"><button class="button" type="button">Back</button></a>
+			<input class="button" type='submit' name='ok' value='OK'>
+		</div>
+	 </form>
+   </div>
 </main>
 </body>
 

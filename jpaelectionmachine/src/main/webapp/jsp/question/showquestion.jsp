@@ -15,11 +15,33 @@
 <title>Questionnaire</title>
 </head>
 <body>
+ <header>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-light navbar-fixed-top">
+       <div class="container-fluid">
+         <a class="navbar-brand" href="../index.html">Election Machine</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+               <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="#project-title">Statistics</a>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </nav>
+</header>
+<main>
 <h1>Questionnaire</h1>
 <div class="form-container">
+<hr class="hr">
 <h4>Question 2/19</h4>
 <hr class="hr">
-<hr class="hr">
+
 <p>
 <c:out value="${requestScope.questionlist[2]}" />
 </p>
@@ -40,11 +62,12 @@
           </div>
 
      <div class="buttons">
-        <button id="previous" class="button"  name="action">Previous</button>
-		<button id="next" class="button"  name="action">next</button>     
-     	<button id="finish" class="button" type="submit"  name='ok' value='OK'>Finish</button>
+        <button id="previous" class="question-button"  name="action">Previous</button>
+		<button id="next" class="question-button"  name="action">next</button>     
+     	<button id="finish" class="question-button" type="submit"  name='ok' value='OK'>Finish</button>
      </div>	
 </form>
 </div>
+</main>
 </body>
 </html>

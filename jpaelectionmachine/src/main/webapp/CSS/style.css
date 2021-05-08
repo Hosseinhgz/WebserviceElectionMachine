@@ -2,17 +2,17 @@ body {
 
 margin:10px auto;
 	  background-color: rgb(25, 49, 70) !important;
+	  background-image: url('../images/background.jpg');
+	    background-repeat: no-repeat;
+  background-attachment: fixed;
+  
   width:100vw;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-size: cover;
   color: rgb(238, 214, 170) !important;
   text-align: center;
 }
-main{
-	  background-color: rgb(25, 49, 70) !important;
-	  color: rgb(238, 214, 170) !important;
-	
-}
+
 .navbar {
 	display:flex;
   background-color: #f76c6c !important;
@@ -120,6 +120,18 @@ hr {
   border: hidden;
   text-decoration:none;
 }
+.question-button {
+  color: #495057;
+  margin: 15px;
+  text-align: center;
+  background-color: rgb(92, 216, 148);
+  width: 150px;
+  height: 1.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  border: hidden;
+  text-decoration:none;
+}
 .submit-botton:hover {
   color: rgb(51, 143, 92);
   background-color: aliceblue;
@@ -131,6 +143,16 @@ hr {
 
 .candidate_form{
   text-align: center;
+}
+.candidates-info{
+	
+}
+.candidate-info{
+	background-color: #f8e9a1;
+	color: black;
+	border-radius: 20px;
+	margin: 10px;
+	padding: 10px 20px 10px 20px;
 }
 .questionbox{
 	width:80%;

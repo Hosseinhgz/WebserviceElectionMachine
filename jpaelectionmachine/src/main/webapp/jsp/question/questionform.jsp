@@ -26,7 +26,7 @@
 	<li>${question.question} </li>
 </div>
 
-<div class="question-button col-md-3">
+<div class="question-buttons col-md-3">
 	<a href='../deletequestion?id=${question.id}'><button class="submit-button">Delete</button></a> 
 	<a href='../readtoupdatequestion?id=${question.id}'><button class="submit-button">Update</button></a>
 </div>

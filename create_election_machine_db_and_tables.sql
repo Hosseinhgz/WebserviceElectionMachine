@@ -231,15 +231,17 @@ drop table question;
 select * from question;
 
 CREATE TABLE ADMIN (
-   ID INTEGER NOT NULL auto_increment,
+	username VARCHAR (50) NOT NULL,
    firstname VARCHAR (50) NOT NULL,
    lastname VARCHAR (50) NOT NULL,
-	username VARCHAR (50) NOT NULL,
    email VARCHAR (100) NOT NULL,
 	password VARCHAR (50) NOT NULL,
-   PRIMARY KEY (ID)
+   PRIMARY KEY (username)
 );
-INSERT INTO ADMIN (firstname, lastname, username, email, password )VALUES ("Hossein","Hazratgholizadeh", "hosseinhgz","hossein.hazratgholizade@gmail.com", "Hh4497");
+drop table admin;
+INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("hosseinhgz","Hossein","Hazratgholizadeh","hossein.hazratgholizade@gmail.com", "Hh4497");
+INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("peterm","peter","moris","peter.moris@gmail.com", "pm4497");
 
 desc candidate;
-select * from candidateanswers;
+select * from admin;
+insert into answer (id, answer) value (3,0);

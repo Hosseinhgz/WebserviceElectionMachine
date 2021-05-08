@@ -28,7 +28,7 @@
 		-->
 		<init-param>
 		  <param-name>jersey.config.server.provider.packages</param-name>
-		  <param-value>app,data,rest,exceptions</param-value>
+		  <param-value>app,data,rest,exceptions,filter,model,calc</param-value>
 		</init-param>
 		<!--
 			This tells the server to load REST service when the server starts
