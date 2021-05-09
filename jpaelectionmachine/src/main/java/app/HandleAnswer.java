@@ -74,14 +74,14 @@ public class HandleAnswer extends HttpServlet {
 		
 		// second part of function
 		// try to save the answer to the database with specific id ************************************IMPORTANT
-		Question q=new Question(request.getParameter("id"), request.getParameter("question"), request.getParameter("answer"));
-		System.out.println(q);
+		Question q2=new Question(request.getParameter("id"), request.getParameter("question"), request.getParameter("answer"));
+		System.out.println(q2);
 		String uri2 = "http://127.0.0.1:8080/rest/answerservice/updateanswer";
 		Client c2=ClientBuilder.newClient();
 		WebTarget wt2=c2.target(uri2);
 		Builder b2=wt2.request();
 		//Here we create an Entity of a Answer object as JSON string format
-		Entity<Question> e2=Entity.entity(q,MediaType.APPLICATION_JSON);
+		Entity<Question> e2=Entity.entity(q2,MediaType.APPLICATION_JSON);
 		//Create a GenericType to be able to get List of objects
 		//This will be the second parameter of post method
 		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
