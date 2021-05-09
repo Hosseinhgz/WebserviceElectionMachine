@@ -52,7 +52,9 @@
 		}
 		</script>
 <!--  ${question.id} - ${question.question}-->
-		<input type="hidden" Class="recommend-radio" name="id" value="1">
+		<input type="hidden"  name="id" value="${question.id}">
+		<input type="hidden"  name="question" value="${question.question}">
+		
 	   <div class="radio-buttons">
               <input type="radio" Class="recommend-radio" name="answer" value="1">
               <label id="definitely">Definitely Agree</label><br>
