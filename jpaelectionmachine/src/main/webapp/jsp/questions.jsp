@@ -54,13 +54,14 @@
 		}
 		</script>-->
 		
-		<input type="text"  name="id" value="${requestScope.question.id}">
+		<input type="text"  name="id2" value="${requestScope.question.id}">
 		<input type="text"  name="question" value="${requestScope.question.question}">
-		<input type="text"  name="" value="${requestScope.question.answer}">
+		<input type="text"  name="" value="${requestScope.question.answer}" >
 
 		
 	   <div class="radio-buttons">
-              <input type="radio" Class="recommend-radio" name="answer" value="1">
+	          <input type="radio" Class="recommend-radio" name="answer" value="0" style="visibility: hidden;" checked ><br>
+              <input type="radio" Class="recommend-radio" name="answer" value="1" >
               <label id="definitely">Definitely Agree</label><br>
               <input type="radio" Class="recommend-radio" name="answer" value="2">
               <label id="maybe">Agree</label><br>

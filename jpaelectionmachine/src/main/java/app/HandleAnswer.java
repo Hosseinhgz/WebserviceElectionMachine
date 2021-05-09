@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 import model.Answer;
 import data.Question;
 
-@WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers","/readonequestion"})
+@WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers","/readonequestion","/backonequestion"})
 public class HandleAnswer extends HttpServlet {
 
 	  @Override
@@ -47,20 +47,25 @@ public class HandleAnswer extends HttpServlet {
 		  list=updateanswer(request);break;
 	  case "/readanswer":
 		  list=readanswer(request);break;
-	  //case "/saveanswers":
-		 // list=saveanswers(request);break;
 	  case "/readonequestion":
 		  Question q=readonequestion(request);
 		  request.setAttribute("question", q);
 		  RequestDispatcher rd=request.getRequestDispatcher("./jsp/questions.jsp");
 		  rd.forward(request, response);
 		  return;
+	  case "/backonequestion":
+		  Question qb=readonequestion(request);
+		  request.setAttribute("question", qb);
+		  RequestDispatcher rdb=request.getRequestDispatcher("./jsp/questions.jsp");
+		  rdb.forward(request, response);
+		  return;
 	  }
 	  request.setAttribute("answerlist", list);
 	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/question/showquestion.jsp");
 	  rd.forward(request, response);
   }
-
+	
+	  // main usage in next button***********************************************************************NEXT
 	private Question readonequestion(HttpServletRequest request) {
 		
 		// first part of function
@@ -94,6 +99,40 @@ public class HandleAnswer extends HttpServlet {
 		return question;
 	}
 
+	  // main usage in previous button***********************************************************************NEXT
+	private Question backonequestion(HttpServletRequest request) {
+		
+		// first part of function
+		// read specific question to show in question.jsp****************************************IMPORTANT
+		int id=Integer.parseInt(request.getParameter("id"));
+		String qu=request.getParameter("question");
+		String ans=request.getParameter("answer");
+		String uri = "http://127.0.0.1:8080/rest/answerservice/readonequestion/"+id;
+		Client c=ClientBuilder.newClient();
+		WebTarget wt=c.target(uri);
+		Builder b=wt.request();
+		Question question=b.get(Question.class);
+		
+		// second part of function
+		// try to save the answer to the database with specific id ************************************IMPORTANT
+		Question q2=new Question((id-1), qu, ans);
+		System.out.println(q2);
+		String uri2 = "http://127.0.0.1:8080/rest/answerservice/updateanswer";
+		Client c2=ClientBuilder.newClient();
+		WebTarget wt2=c2.target(uri2);
+		Builder b2=wt2.request();
+		//Here we create an Entity of a Answer object as JSON string format
+		Entity<Question> e2=Entity.entity(q2,MediaType.APPLICATION_JSON);
+		//Create a GenericType to be able to get List of objects
+		//This will be the second parameter of post method
+		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
+		
+		//Posting data (Entity<ArrayList<Answer>> e) to the given address
+		List<Question> returnedList=b2.put(e2, genericList);
+		
+		return question;
+	}
+	
 	private List<Answer> addanswer(HttpServletRequest request) {
 		//A Answer object to send to our web-service 
 		Answer f=new Answer(request.getParameter("answer"));
