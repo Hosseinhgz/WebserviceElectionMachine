@@ -23,7 +23,8 @@ import javax.ws.rs.core.MediaType;
 import model.Answer;
 import data.Question;
 
-@WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers","/readonequestion","/backonequestion"})
+@WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers",
+		"/readonequestion","/backonequestion","/anscalculator"})
 public class HandleAnswer extends HttpServlet {
 
 	  @Override
@@ -47,6 +48,13 @@ public class HandleAnswer extends HttpServlet {
 		  list=updateanswer(request);break;
 	  case "/readanswer":
 		  list=readanswer(request);break;
+	  case "/anscalculator":
+		  List<Question> list2=null;
+		  list2=anscalculator(request);
+		  request.setAttribute("answerlist", list2);
+		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/question/resault.jsp");
+		  rdc.forward(request, response);
+		  return;	  
 	  case "/readonequestion":
 		  Question q=readonequestion(request);
 		  request.setAttribute("question", q);
@@ -69,7 +77,7 @@ public class HandleAnswer extends HttpServlet {
 	private Question readonequestion(HttpServletRequest request) {
 		
 		// first part of function
-		// read specific question to show in question.jsp****************************************IMPORTANT
+		// read specific question to show in question.jsp
 		int id=Integer.parseInt(request.getParameter("id"));
 		String qu=request.getParameter("question");
 		String ans=request.getParameter("answer");
@@ -80,7 +88,7 @@ public class HandleAnswer extends HttpServlet {
 		Question question=b.get(Question.class);
 		
 		// second part of function
-		// try to save the answer to the database with specific id ************************************IMPORTANT
+		// try to save the answer to the database with specific id 
 		Question q2=new Question((id-1), qu, ans);
 		System.out.println(q2);
 		String uri2 = "http://127.0.0.1:8080/rest/answerservice/updateanswer";
@@ -99,11 +107,11 @@ public class HandleAnswer extends HttpServlet {
 		return question;
 	}
 
-	  // main usage in previous button***********************************************************************NEXT
+	  // main usage in previous button***********************************************************************BACK
 	private Question backonequestion(HttpServletRequest request) {
 		
 		// first part of function
-		// read specific question to show in question.jsp****************************************IMPORTANT
+		// read specific question to show in question.jsp
 		int id=Integer.parseInt(request.getParameter("id"));
 		String qu=request.getParameter("question");
 		String ans=request.getParameter("answer");
@@ -114,7 +122,7 @@ public class HandleAnswer extends HttpServlet {
 		Question question=b.get(Question.class);
 		
 		// second part of function
-		// try to save the answer to the database with specific id ************************************IMPORTANT
+		// try to save the answer to the database with specific id 
 		Question q2=new Question((id+1), qu, ans);
 		System.out.println(q2);
 		String uri2 = "http://127.0.0.1:8080/rest/answerservice/updateanswer";
@@ -131,6 +139,21 @@ public class HandleAnswer extends HttpServlet {
 		List<Question> returnedList=b2.put(e2, genericList);
 		
 		return question;
+	}
+	
+	// this function is getting data (candidate answers and customer answer from database and do the calculation
+	// this function is returning the result for comparison
+	private List<Question> anscalculator(HttpServletRequest request) {
+		String uri = "http://127.0.0.1:8080/rest/answerservice/readanswer";
+		Client c=ClientBuilder.newClient();
+		WebTarget wt=c.target(uri);
+		Builder b=wt.request();
+		//Create a GenericType to be able to get List of objects
+		//This will be the second parameter of post method
+		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
+		
+		List<Question> returnedList=b.get(genericList);
+		return returnedList;
 	}
 	
 	private List<Answer> addanswer(HttpServletRequest request) {
@@ -153,7 +176,6 @@ public class HandleAnswer extends HttpServlet {
 	}
 	
 	private List<Answer> readanswer(HttpServletRequest request) {
-		String id=request.getParameter("id");
 		String uri = "http://127.0.0.1:8080/rest/answerservice/readanswer";
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
@@ -185,31 +207,6 @@ public class HandleAnswer extends HttpServlet {
 		return returnedList;
 	}
 	
-//	private List<Answer> saveanswerss(HttpServletRequest request) {
-//		//A Answer object to send to our web-service 
-//		ArrayList<Answer> answers = new ArrayList<Answer>();
-//		EntityManagerFactory emf=Persistence.createEntityManagerFactory("jpaelectionmachine");
-//		EntityManager em=emf.createEntityManager();
-//		for (int i = 0;i<=19;i++) {		
-//			Answer q=new Answer(request.getParameter(""+i));
-//			System.out.print(q.getAnswer());
-//			if(q.getAnswer()>0) {
-//				System.out.println(q);
-//				answers.add(q);
-//				em.getTransaction().begin();
-//				em.persist(q);
-//				em.getTransaction().commit();
-//				
-//			}else {
-//				Answer q1=new Answer(0);
-//				answers.add(q1);
-//				em.getTransaction().begin();
-//				em.persist(q1);
-//				em.getTransaction().commit();
-//			}
-//		}
-//		return answers;
-//	}
 	
 	private List<Answer> deleteanswer(HttpServletRequest request) {
 		String id=request.getParameter("id");
@@ -225,4 +222,5 @@ public class HandleAnswer extends HttpServlet {
 		List<Answer> returnedList=b.delete(genericList);
 		return returnedList;
 	}
+
 }
