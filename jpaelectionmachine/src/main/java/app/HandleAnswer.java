@@ -21,8 +21,9 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import model.Answer;
+import data.Question;
 
-@WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/readtoupdateanswer","/saveanswers"})
+@WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers","/readonequestion"})
 public class HandleAnswer extends HttpServlet {
 
 	  @Override
@@ -48,10 +49,10 @@ public class HandleAnswer extends HttpServlet {
 		  list=readanswer(request);break;
 	  //case "/saveanswers":
 		 // list=saveanswers(request);break;
-	  case "/readtoupdateanswer":
-		  Answer q=readtoupdateanswer(request);
-		  request.setAttribute("answer", q);
-		  RequestDispatcher rd=request.getRequestDispatcher("./jsp/answertoupdateform.jsp");
+	  case "/readonequestion":
+		  Question q=readonequestion(request);
+		  request.setAttribute("question", q);
+		  RequestDispatcher rd=request.getRequestDispatcher("./jsp/questions.jsp");
 		  rd.forward(request, response);
 		  return;
 	  }
@@ -60,14 +61,14 @@ public class HandleAnswer extends HttpServlet {
 	  rd.forward(request, response);
   }
 
-	private Answer readtoupdateanswer(HttpServletRequest request) {
+	private Question readonequestion(HttpServletRequest request) {
 		String id=request.getParameter("id");
-		String uri = "http://127.0.0.1:8080/rest/answerservice/readtoupdateanswer/"+id;
+		String uri = "http://127.0.0.1:8080/rest/answerservice/readonequestion/"+id;
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
 		Builder b=wt.request();
-		Answer answer=b.get(Answer.class);
-		return answer;
+		Question question=b.get(Question.class);
+		return question;
 	}
 
 	private List<Answer> addanswer(HttpServletRequest request) {

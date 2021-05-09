@@ -32,7 +32,7 @@
 </header>
 <main>
 <h1>Edit Questions</h1>
-<div class="form-container">
+<div class="form-container3">
 <p>Here you can add new question:</p>
 <form action='../addquestion' method='post'>
 	<input type='text' class="questionbox" name='question' placeholder="New question text" value=''>

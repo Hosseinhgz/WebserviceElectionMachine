@@ -109,7 +109,7 @@ public class HandleQuestion extends HttpServlet {
 	
 	private List<Question> updatequestion(HttpServletRequest request) {
 		//A Question object to send to our web-service 
-		Question q=new Question(request.getParameter("id"), request.getParameter("question"));
+		Question q=new Question(request.getParameter("id"), request.getParameter("question"),0);
 		System.out.println(q);
 		String uri = "http://127.0.0.1:8080/rest/questionservice/updatequestion";
 		Client c=ClientBuilder.newClient();

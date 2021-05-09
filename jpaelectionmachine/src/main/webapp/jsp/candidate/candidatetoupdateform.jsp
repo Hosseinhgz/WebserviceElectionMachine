@@ -11,7 +11,7 @@
 <title>Candidates List</title>
 </head>
 <body>
-<div class="form-container">
+<div class="form-container1">
 <h1>Update the  candidates ${requestScope.candidate.id}</h1>
 <form action='../updatecandidate?id=${candidate.id}' method='post'>
 <div><h3>Candidate ${requestScope.candidate.id}</h3>

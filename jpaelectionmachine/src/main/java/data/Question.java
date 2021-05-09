@@ -11,6 +11,7 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int id;
 	private String question;
+	private int answer;
 	
 	public Question() {
 		
@@ -26,7 +27,21 @@ public class Question {
 		this.id=Integer.parseInt(id);
 		this.question=question;
 	}
-
+	public Question(String id, String question, int answer) {
+		this.id=Integer.parseInt(id);
+		this.question=question;
+		this.answer = answer;
+	}
+	public Question(String id, String question, String answer) {
+		this.id=Integer.parseInt(id);
+		this.question=question;
+		this.answer = Integer.parseInt(answer);
+	}
+	public Question(int id, String question, int answer) {
+		this.id=id;
+		this.question=question;
+		this.answer = answer;
+	}
 
 	
 	public int getId() {
@@ -53,5 +68,14 @@ public class Question {
 
 	public String toString() {
 		return this.id+": "+this.question;
+	}
+	public int getAnswer() {
+		return answer;
+	}
+	public void setAnswer(int answer) {
+		this.answer = answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = Integer.parseInt(answer);
 	}
 }

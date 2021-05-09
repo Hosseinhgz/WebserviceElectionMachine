@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">   
 <link href="../CSS/style.css" rel="stylesheet">
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -34,8 +34,9 @@
 <div class="form-container">
 <h1>Update the  question ${requestScope.question.id}</h1>
 <form action='../updatequestion?id=${question.id}' method='post'>
-<div>${requestScope.question.id } .
-<input type='text' name='question' class="questionbox" value='${requestScope.question.question }'>
+<div>${question.id } - 
+<input type='hidden' name="id" class="questionbox" value='${question.id }'>
+<input type='text' name='question' class="questionbox" value='${question.question }'>
 <input class="submit-button" type='submit' name='ok' value='OK'></div>
 </form>
 </div>

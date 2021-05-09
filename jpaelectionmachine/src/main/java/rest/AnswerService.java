@@ -17,6 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import model.Answer;
+import data.Question;
 
 @Path("/answerservice")
 public class AnswerService {
@@ -78,13 +79,13 @@ public class AnswerService {
 		return list;
 	}	
 	@GET
-	@Path("/readtoupdateanswer/{id}")
+	@Path("/readonequestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Answer readToUpdateAnswer(@PathParam("id") int id) {
+	public Question readToUpdateAnswer(@PathParam("id") int id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Answer q=em.find(Answer.class, id);
+		Question q=em.find(Question.class, id);
 		em.getTransaction().commit();
 		return q;
 	}	
