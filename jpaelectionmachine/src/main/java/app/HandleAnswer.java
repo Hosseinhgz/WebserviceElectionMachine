@@ -54,7 +54,7 @@ public class HandleAnswer extends HttpServlet {
 		  rd.forward(request, response);
 		  return;
 	  case "/backonequestion":
-		  Question qb=readonequestion(request);
+		  Question qb=backonequestion(request);
 		  request.setAttribute("question", qb);
 		  RequestDispatcher rdb=request.getRequestDispatcher("./jsp/questions.jsp");
 		  rdb.forward(request, response);
@@ -115,7 +115,7 @@ public class HandleAnswer extends HttpServlet {
 		
 		// second part of function
 		// try to save the answer to the database with specific id ************************************IMPORTANT
-		Question q2=new Question((id-1), qu, ans);
+		Question q2=new Question((id+1), qu, ans);
 		System.out.println(q2);
 		String uri2 = "http://127.0.0.1:8080/rest/answerservice/updateanswer";
 		Client c2=ClientBuilder.newClient();
