@@ -65,7 +65,9 @@ public class HandleAnswer extends HttpServlet {
 		
 		// first part of function
 		// read specific question to show in question.jsp****************************************IMPORTANT
-		String id=request.getParameter("id");
+		int id=Integer.parseInt(request.getParameter("id"));
+		String qu=request.getParameter("question");
+		String ans=request.getParameter("answer");
 		String uri = "http://127.0.0.1:8080/rest/answerservice/readonequestion/"+id;
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
@@ -74,7 +76,7 @@ public class HandleAnswer extends HttpServlet {
 		
 		// second part of function
 		// try to save the answer to the database with specific id ************************************IMPORTANT
-		Question q2=new Question(request.getParameter("id"), request.getParameter("question"), request.getParameter("answer"));
+		Question q2=new Question((id-1), qu, ans);
 		System.out.println(q2);
 		String uri2 = "http://127.0.0.1:8080/rest/answerservice/updateanswer";
 		Client c2=ClientBuilder.newClient();

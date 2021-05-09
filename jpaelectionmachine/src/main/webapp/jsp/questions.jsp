@@ -45,15 +45,19 @@
 <p>
 <c:out value="${requestScope.question.id} - ${requestScope.question.question}" />
 </p>
-<form action='../readonequestion?id=${question.id+1}' method='post'>
-		<script>
+<!--  <form action='../readonequestion?id=${question.id+1}' method='post'>-->
+<form data-ajax="false" method="post">
+
+		<!--  <script>
 		function changeAction(val) {
 		document.forms[0].action = val;
 		}
-		</script>
-<!--  ${question.id} - ${question.question}-->
-		<input type="hidden"  name="id" value="${question.id}">
-		<input type="hidden"  name="question" value="${question.question}">
+		</script>-->
+		
+		<input type="text"  name="id" value="${requestScope.question.id}">
+		<input type="text"  name="question" value="${requestScope.question.question}">
+		<input type="text"  name="" value="${requestScope.question.answer}">
+
 		
 	   <div class="radio-buttons">
               <input type="radio" Class="recommend-radio" name="answer" value="1">
@@ -68,10 +72,10 @@
               <label id="not-sure">Completely disagree</label><br>
           </div>
 
-     <div class="buttons">
-     	<input onmouseover="changeAction('../readonequestion?id=${question.id-1}')"  type="submit" class="question-button" name="action" value="Previous"> 
-		<input onmouseover="changeAction('../readonequestion?id=${question.id+1}')"  type="submit" class="question-button"  name="action" value="Next">
-		<input onmouseover="changeAction('../readonequestion?id=1')"  type="submit" class="question-button"  name="ok" value="Finish">
+     <div class="buttons" data-role="fieldcontain">
+     	<input formaction='../readonequestion?id=${requestScope.question.id-1}'  type="submit" class="question-button" name="action" value="Previous"> 
+		<input formaction='../readonequestion?id=${requestScope.question.id+1}'  type="submit" class="question-button"  name="action" value="Next">
+		<input formaction='../readonequestion?id=1'  type="submit" class="question-button"  name="ok" value="Finish">
 			
      </div>	
 </form>

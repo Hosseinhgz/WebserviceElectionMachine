@@ -37,6 +37,11 @@ public class Question {
 		this.question=question;
 		this.answer = Integer.parseInt(answer);
 	}
+	public Question(int id, String question, String answer) {
+		this.id=id;
+		this.question=question;
+		this.answer = Integer.parseInt(answer);
+	}
 	public Question(int id, String question, int answer) {
 		this.id=id;
 		this.question=question;

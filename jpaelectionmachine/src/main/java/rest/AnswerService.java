@@ -46,10 +46,23 @@ public class AnswerService {
 			em.merge(question);//The actual update line
 		}
 		em.getTransaction().commit();
-		//Calling the method readAnswer() of this service
-		List<Question> list=readAnswer();		
-		return list;
+		// just save the data to database
+		
+		return null;
 	}	
+	
+	@GET
+	@Path("/readonequestion/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Question readToUpdateAnswer(@PathParam("id") int id) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Question q=em.find(Question.class, id);
+		em.getTransaction().commit();
+		return q;
+	}	
+	
 	@DELETE
 	@Path("/deleteanswer/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -65,16 +78,5 @@ public class AnswerService {
 		//Calling the method readAnswer() of this service
 		List<Question> list=readAnswer();		
 		return list;
-	}	
-	@GET
-	@Path("/readonequestion/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Question readToUpdateAnswer(@PathParam("id") int id) {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		Question q=em.find(Question.class, id);
-		em.getTransaction().commit();
-		return q;
-	}	
+	}
 }
