@@ -36,7 +36,14 @@ public class Result implements Serializable {
 		this.id=Integer.parseInt(id);
 		this.result=Integer.parseInt(result);
 	}
-	
+	public Result(String id,Double result) {
+		this.id=Integer.parseInt(id);
+		this.result=result;
+	}	
+	public Result(int id,Double result) {
+		this.id=id;
+		this.result=result;
+	}
 	public int getId() {
 		return this.id;
 	}
