@@ -43,15 +43,16 @@
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist}">
 <div class="row">
-<div class="question-container col-md-8">
+<div class="question-container col-md-7">
 	<li>${question.question} </li>
 </div>
 
-<div class="question-buttons col-md-4">
+<div class="question-buttons col-md-3">
 	<a href='../deletequestion?id=${question.id}'><button class="submit-button-update">Delete</button></a> 
 	<a href='../readtoupdatequestion?id=${question.id}'><button class="submit-button-delete">Update</button></a>
 </div>
 </div>
+<hr>
 </c:forEach>
 </ol>
 </div>
