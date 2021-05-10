@@ -38,19 +38,19 @@
 	<label><b>First name:</b></label>		
 	<input type='text'  class="candidatebox" name='firstname' value='${requestScope.candidate.firstname }'><br>
 	<label><b>Last name:</b></label>		
-	<input type='text' class="candidatebox" name='surname' value='${requestScope.candidate.surname }'><br>	
+	<input type='text' class="candidatebox1" name='surname' value='${requestScope.candidate.surname }'><br>	
 	<label><b>IKA: </b></label>		
-	<input type='text' class="candidatebox" name='ika' value='${requestScope.candidate.ika }'><br>	
+	<input type='text' class="candidatebox1" name='ika' value='${requestScope.candidate.ika }'><br>	
 	<label><b>Location: </b></label>		
-	<input type='text' class="candidatebox" name='location' value='${requestScope.candidate.location }'><br>	
+	<input type='text' class="candidatebox1" name='location' value='${requestScope.candidate.location }'><br>	
 	<label><b>Party: </b></label>		
-	<input type='text' class="candidatebox" name='party' placeholder="" value='${requestScope.candidate.party }'><br>	
+	<input type='text' class="candidatebox1" name='party' placeholder="" value='${requestScope.candidate.party }'><br>	
 	<label><b>Why Commission: </b></label>		
-	<input type='text' class="candidatebox" name='whyCommission' placeholder="" value='${requestScope.candidate.whyCommission }'><br>
+	<input type='text' class="candidatebox2" name='whyCommission' placeholder="" value='${requestScope.candidate.whyCommission }'><br>
 	<label><b>What ATHES Want EDES: </b></label>		
-	<input type='text' class="candidatebox" name='whatAthesWantEdes' value='${requestScope.candidate.whatAthesWantEdes }'><br>	
+	<input type='text' class="candidatebox2" name='whatAthesWantEdes' value='${requestScope.candidate.whatAthesWantEdes }'><br>	
 	<label><b>Profession: </b></label>		
-	<input type='text' class="candidatebox" name='professional' value='${requestScope.candidate.professional }'><br>
+	<input type='text' class="candidatebox2" name='professional' value='${requestScope.candidate.professional }'><br>
 	<input class="submit-button" type='submit' name='ok' value='OK'>
 </div>
 </form>

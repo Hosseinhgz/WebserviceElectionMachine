@@ -26,7 +26,7 @@ h1{
 .form-container {
   background: rgba(60, 72, 77, 0.85);
   width: 75vw;
-  height:65vh;
+  height:75vh;
   text-align: left;
   margin: 20px auto;
   border-radius: 10px;
@@ -34,10 +34,12 @@ h1{
   padding-top: 15px;
   padding-right: 30px;
 } 
+.form-container form input{
+	margin-left:20px;
+}
 .form-container1 {
   background: rgba(60, 72, 77, 0.85);
-  width: 75vw;
-  
+  width: 75vw; 
   text-align: left;
   margin: 20px auto;
   border-radius: 10px;
@@ -54,6 +56,9 @@ h1{
   border-radius: 10px;
   padding-left: 10px;
   padding-top: 15px;
+}
+.form-container3 form input{
+margin-left:20px
 } 
 .form-container4 {
   background: #f76c6c;
@@ -125,9 +130,7 @@ height:62px;
   padding: 10px;
   margin-left:30px
 }
-hr {
-	border:1px dashed #f8e9a1;
-}
+
 .hr{
 		border:1px dashed #f8e9a1;
 	
@@ -211,7 +214,7 @@ hr {
   background-color: aliceblue;
 }
 
-.candidate_form{
+.candidate-form{
 	color: #24305e;
 	padding: 20px;
 	display:flex;
@@ -239,13 +242,27 @@ hr {
 	padding-left:10px;
 }
 .candidatebox{
-	height:1.4rem;
-	margin:10px auto;
+	height:1.8rem;
+	margin:15px;
 	border-radius:5px;
-	padding:5px;
-	padding-left:10px;
-  width: fit-content;
+	padding:10px;
+  width: 20%;
 }
+.candidatebox1{
+	height:1.8rem;
+	margin:15px;
+	border-radius:5px;
+	padding:10px;
+  width: 50%;
+}
+.candidatebox2{
+	height:3rem;
+	margin:5px 15px 15px 5px;
+	border-radius:5px;
+	padding:10px;
+  width: 70%;
+}
+
 .textfield{
 	
 	width:200px;

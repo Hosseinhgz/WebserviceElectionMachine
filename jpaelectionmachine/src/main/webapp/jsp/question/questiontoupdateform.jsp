@@ -32,14 +32,22 @@
 </header>
 <main>
 <div class="form-container">
+<hr>
+
 <h1>Update the  question ${requestScope.question.id}</h1>
+<hr>
+
 <form action='../updatequestion?id=${question.id}' method='post'>
 <div>${question.id } - 
 <input type='hidden' name="id" class="questionbox" value='${question.id }'>
 <input type='text' name='question' class="questionbox" value='${question.question }'>
 <input class="submit-button" type='submit' name='ok' value='OK'></div>
 </form>
+<div class="info-img">
+	<a href="../readquestion"><button class="button" type="button">Back to Questions</button></a>
 </div>
+</div>
+
 </main>
 </body>
 </html>

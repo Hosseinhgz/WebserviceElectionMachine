@@ -33,13 +33,15 @@
 <main>
 <h1>Edit Questions</h1>
 <div class="form-container3">
+<hr>
 <p>Here you can add new question:</p>
 <form action='../addquestion' method='post'>
 	<input type='text' class="questionbox" name='question' placeholder="New question text" value=''>
 	<input class="submit-button" type='submit' name='ok' value='OK'>
 </form>
+
 <hr>
-<hr>
+
 <ol>
 <c:forEach var="question" items="${requestScope.questionlist}">
 <div class="row">
@@ -55,6 +57,9 @@
 <hr>
 </c:forEach>
 </ol>
+<div class="info-img">
+	<a href="../jsp/adminmain.jsp"><button class="button" type="button">Back to login main</button></a>
+</div>
 </div>
 </main>
 </body>

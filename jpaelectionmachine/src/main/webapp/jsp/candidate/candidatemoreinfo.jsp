@@ -32,7 +32,7 @@
 </header>
 <main>
 <h1> ${candidate.firstname} ${candidate.surname}</h1>
-<div class="form-container">
+<div class="form-container1">
 	<div class="candidates-info">
 		<div class="info-img">
 			<img  src="./images/Candidate${candidate.id}.jpg" style="width:400px;height:260px;border-radius:30px;">

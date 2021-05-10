@@ -1,8 +1,7 @@
-/exceptions/
-/app/
-/data/
 /rest/
+/app/
 /calc/
-/META-INF/
-/model/
+/data/
+/exceptions/
 /filter/
+/model/

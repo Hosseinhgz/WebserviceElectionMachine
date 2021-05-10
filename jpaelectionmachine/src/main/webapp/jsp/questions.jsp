@@ -46,7 +46,7 @@
 <c:out value="${requestScope.question.id} - ${requestScope.question.question}" />
 </p>
 <!--  <form action='../readonequestion?id=${question.id+1}' method='post'>-->
-<form data-ajax="false" method="post">
+<form data-ajax="false" method="post" >
 
 		<!--  <script>
 		function changeAction(val) {
@@ -54,16 +54,16 @@
 		}
 		</script>-->
 		
-		<input type="text"  name="id2" value="${requestScope.question.id}">
-		<input type="text"  name="question" value="${requestScope.question.question}">
-		<input type="text"  name="" value="${requestScope.question.answer}" >
+		<input type="hidden"  name="id2" value="${requestScope.question.id}">
+		<input type="hidden"  name="question" value="${requestScope.question.question}">
+		<input type="hidden"  name="" value="${requestScope.question.answer}" >
 
 		
 	   <div class="radio-buttons">
 	          <input type="radio" Class="recommend-radio" name="answer" value="0" style="visibility: hidden;" checked ><br>
               <input type="radio" Class="recommend-radio" name="answer" value="1" >
               <label id="definitely">Definitely Agree</label><br>
-              <input type="radio" Class="recommend-radio" name="answer" value="2">
+              <input type="radio" Class="recommend-radio" name="answer" value="2" >
               <label id="maybe">Agree</label><br>
               <input type="radio" Class="recommend-radio" name="answer" value="3">
               <label id="not-sure">Middle opinion</label><br>
@@ -71,6 +71,9 @@
               <label id="not-sure">Disagree</label><br>
               <input type="radio" Class="recommend-radio" name="answer" value="5">
               <label id="not-sure">Completely disagree</label><br>
+              <hr>
+              <p><b>your current saved choice is : ${requestScope.question.answer}</b></p>
+              <hr>
           </div>
 
      <div class="buttons" data-role="fieldcontain">
