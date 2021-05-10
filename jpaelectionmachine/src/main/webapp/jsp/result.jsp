@@ -33,6 +33,18 @@
 <main>
 <h1>your result</h1>
 <div class="form-container3">
+
+<ul>
+<c:forEach var="result" items="${requestScope.resultlist}">
+<div class="row">
+<div class="question-container1">
+	<li>${result.id} ** ${result.result} </li>
+</div>
+</div>
+</c:forEach>
+</ul>
+
+
 <ul>
 <c:forEach var="candidateanswer" items="${requestScope.candidateanswerlist}">
 <div class="row">
