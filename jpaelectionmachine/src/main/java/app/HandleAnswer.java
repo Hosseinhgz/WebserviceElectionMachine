@@ -3,6 +3,8 @@ package app;
 import java.io.*;
 import java.util.*;
 
+import java.math.BigInteger;  
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -21,6 +23,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import model.Answer;
+import model.Result;
 import model.Candidateanswer;
 import data.Question;
 
@@ -50,17 +53,46 @@ public class HandleAnswer extends HttpServlet {
 	  case "/readanswer":
 		  list=readanswer(request);break;
 	  case "/anscalculator":
-		  List<Question> list2=null;
-		  List<Candidateanswer> list3=null;
+		  List<Question> qalist=null;
+		  List<Candidateanswer> calist=null;
+		  List<Result> resultlist =null;
+		  double res = 0;
+		  qalist=readcustomeranswers(request);
+		  calist=readcandidateanswers(request);
+		  int l = 0; 
+		  // calculation for find the best candidates are here************************CALCULATIONS
+		  for(int k = 1; k <= 6; k++) {
+
+			  for(int i = 0; i < calist.size(); i++) // i max 19 * 6
+			  {
+				  for(int j = 0; j < qalist.size(); i++) { // j max = 19
+					  if(qalist.get(j).getAnswer()==0 && calist.get(i).getCandidateid()==k) {
+						  res=res + (1-((qalist.get(j).getAnswer()-calist.get(j).getCandidateans())*0.25));
+						  l++;
+						  
+					  }
+					  double percentresult = (res/l)*100;
+					  resultlist.get(k).setResult(percentresult);
+					  resultlist.get(k).setId(k);
+					  
+				  }
+			  }
 		  
-		  list2=readcustomeranswers(request);
-		  list3=readcandidateanswers(request);
-		  request.setAttribute("candidateanswerlist", list3);
-		  RequestDispatcher rdc2=request.getRequestDispatcher("./jsp/result.jsp");
-		  rdc2.forward(request, response);
-		  request.setAttribute("answerlist", list2);
-		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/result.jsp");
-		  rdc.forward(request, response);
+		  }
+		  
+		  
+		  
+		  
+		  request.setAttribute("result", resultlist);
+		  RequestDispatcher rdc3=request.getRequestDispatcher("./jsp/result.jsp");
+		  rdc3.forward(request, response);
+		  
+//		  request.setAttribute("candidateanswerlist", calist);
+//		  RequestDispatcher rdc2=request.getRequestDispatcher("./jsp/result.jsp");
+//		  rdc2.forward(request, response);
+//		  request.setAttribute("answerlist", aqlist);
+//		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/result.jsp");
+//		  rdc.forward(request, response);
 
 		  return;	  
 	  case "/readonequestion":
