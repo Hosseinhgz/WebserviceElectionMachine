@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
@@ -20,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
+                  <a class="nav-link" aria-current="page" href='/checkuser?logout=yes'>Log out</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#project-title">Statistics</a>
@@ -32,14 +35,13 @@
    </header>
 	<main>
 	  <div class="container">
-	  	<img src="../images/elections-icon.png" alt="election icon" style="width:100px;height:100px;">
-	  
-	    <h1>Welcome to Election machine</h1>
-	    <p>Path to Choose wise</p>
-	    
-		<a href="../showcandidate"><button class="button" type="button">Candidates</button></a>
-		<a href='../readonequestion?id=1&question=It+is+too+easy+to+live+on+social+security+in+Finland&answer=0'><button class="button" type="button">Questionnaire</button></a>
-	
+	  	<hr>
+	    <h1>Admin page</h1>
+	    <hr>
+	   	<img src="../images/admin-icon.png" alt="admin icon" style="width:100px;height:100px;"><br>    
+		<a href="../readcandidate"><button class="button" type="button">Edit Candidates</button></a>
+		<a href="../readquestion"><button class="button" type="button">Edit Questions</button></a>
+
 	 </div>
 </main>
 </body>

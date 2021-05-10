@@ -12,12 +12,11 @@ import javax.persistence.*;
 public class Admin {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String username;
 	
 	private String firstname;
 	private String lastname;
-	private String username;
 	private String email;
 	private String password;
 	
@@ -35,28 +34,7 @@ public class Admin {
 		this.email = email;
 		this.password = password;
 	}
-	
-	public Admin(int id, String firstname, String lastname, String username, String email, String password) {
-		super();
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-	}
-	
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public void setId(String id) {
-		this.id = Integer.parseInt(id);
-	}
+
 	
 	public String getFirstname() {
 		return firstname;
@@ -90,7 +68,7 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username=" + username
+		return "Admin [, firstname=" + firstname + ", lastname=" + lastname + ", username=" + username
 				+ ", email=" + email + ", password=" + password + "]";
 	}
 

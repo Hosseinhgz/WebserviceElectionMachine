@@ -4,16 +4,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="../CSS/style.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">   
-
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">   
+    <link href="../CSS/style.css" rel="stylesheet">
 <title>Candidates</title>
 </head>
 <body>
-<h1>Candidates</h1>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light navbar-fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Election Machine</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#project-title">Statistics</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+   </header>
+   <main>
 <div class="form-container2">
-
+<h1>Candidates</h1>
 <div class="row">
 <c:forEach var="candidate" items="${requestScope.candidatelist}">
 <div class="col-sm-4">
@@ -42,5 +61,6 @@
 </div>
 
 </div>
+</main>
 </body>
 </html>

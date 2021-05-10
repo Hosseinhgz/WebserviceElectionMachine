@@ -50,7 +50,7 @@ public class HandleQuestion extends HttpServlet {
 		  request.setAttribute("questionlist", list);
 		  RequestDispatcher rd2=request.getRequestDispatcher("./jsp/question/showquestion.jsp");
 		  rd2.forward(request, response);
-		  break;
+		  return;
 	  case "/readtoupdatequestion":
 		  Question q=readtoupdatequestion(request);
 		  request.setAttribute("question", q);
@@ -94,7 +94,6 @@ public class HandleQuestion extends HttpServlet {
 	}
 	
 	private List<Question> readquestion(HttpServletRequest request) {
-		String id=request.getParameter("id");
 		String uri = "http://127.0.0.1:8080/rest/questionservice/readquestion";
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
@@ -109,7 +108,7 @@ public class HandleQuestion extends HttpServlet {
 	
 	private List<Question> updatequestion(HttpServletRequest request) {
 		//A Question object to send to our web-service 
-		Question q=new Question(request.getParameter("id"), request.getParameter("question"));
+		Question q=new Question(request.getParameter("id"), request.getParameter("question"),0);
 		System.out.println(q);
 		String uri = "http://127.0.0.1:8080/rest/questionservice/updatequestion";
 		Client c=ClientBuilder.newClient();

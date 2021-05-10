@@ -17,6 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import model.Answer;
+import data.Question;
 
 @Path("/answerservice")
 public class AnswerService {
@@ -25,67 +26,70 @@ public class AnswerService {
 	@Path("/readanswer")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Answer> readAnswer() {
+	public List<Question> readAnswer() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Answer> list=em.createQuery("select a from Answer a").getResultList();		
+		List<Question> list=em.createQuery("select a from Question a").getResultList();		
 		em.getTransaction().commit();
 		return list;
-	}	
-	@POST
-	@Path("/addanswer")
+	}
+	
+	@GET
+	@Path("/readcandidateanswers")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Answer> addAnswer(Answer answer) {
+	public List<Question> readCandidateAnswers() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(answer);//The actual insertion line
+		List<Question> list=em.createQuery("select a from Candidateanswer a").getResultList();		
 		em.getTransaction().commit();
-		//Calling the method readAnswer() of this service
-		List<Answer> list=readAnswer();		
 		return list;
 	}	
+	
+	
 	@PUT
 	@Path("/updateanswer")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Answer> updateAnswer(Answer answer) {
+	public List<Question> updateAnswer(Question question) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Answer q=em.find(Answer.class, answer.getId());
+		Question q=em.find(Question.class, question.getId());
 		if (q!=null) {
-			em.merge(answer);//The actual update line
+			em.merge(question);//The actual update line
 		}
 		em.getTransaction().commit();
-		//Calling the method readAnswer() of this service
-		List<Answer> list=readAnswer();		
-		return list;
+		// just save the data to database
+		
+		return null;
 	}	
+	
+	@GET
+	@Path("/readonequestion/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Question readToUpdateAnswer(@PathParam("id") int id) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Question q=em.find(Question.class, id);
+		em.getTransaction().commit();
+		return q;
+	}	
+	
 	@DELETE
 	@Path("/deleteanswer/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public List<Answer> deleteAnswer(@PathParam("id") int id) {
+	public List<Question> deleteAnswer(@PathParam("id") int id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Answer q=em.find(Answer.class, id);
+		Question q=em.find(Question.class, id);
 		if (q!=null) {
 			em.remove(q);//The actual insertion line
 		}
 		em.getTransaction().commit();
 		//Calling the method readAnswer() of this service
-		List<Answer> list=readAnswer();		
+		List<Question> list=readAnswer();		
 		return list;
-	}	
-	@GET
-	@Path("/readtoupdateanswer/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Answer readToUpdateAnswer(@PathParam("id") int id) {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		Answer q=em.find(Answer.class, id);
-		em.getTransaction().commit();
-		return q;
-	}	
+	}
 }

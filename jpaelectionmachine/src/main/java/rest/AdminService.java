@@ -52,7 +52,7 @@ public class AdminService {
 	public List<Admin> updateAdmin(Admin admin) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		Admin q=em.find(Admin.class, admin.getId());
+		Admin q=em.find(Admin.class, admin.getUsername());
 		if (q!=null) {
 			em.merge(admin);//The actual update line
 		}

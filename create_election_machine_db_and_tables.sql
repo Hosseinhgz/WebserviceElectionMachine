@@ -1,4 +1,4 @@
-#create database electionmachine;
+questionquestion#create database electionmachine;
 use electionmachine;
 CREATE TABLE CANDIDATES (
    CANDIDATE_ID INTEGER NOT NULL,
@@ -74,6 +74,7 @@ INSERT INTO CANDIDATE VALUES (20, "Andersson", "Essi", "Swedish People Party of 
 CREATE TABLE QUESTION (
    ID INTEGER NOT NULL auto_increment,
    QUESTION VARCHAR (3000),
+   ANSWER INTEGER default 0,
    PRIMARY KEY (ID)
 );
 # insert values ​​into the table questions
@@ -231,15 +232,17 @@ drop table question;
 select * from question;
 
 CREATE TABLE ADMIN (
-   ID INTEGER NOT NULL auto_increment,
+	username VARCHAR (50) NOT NULL,
    firstname VARCHAR (50) NOT NULL,
    lastname VARCHAR (50) NOT NULL,
-	username VARCHAR (50) NOT NULL,
    email VARCHAR (100) NOT NULL,
 	password VARCHAR (50) NOT NULL,
-   PRIMARY KEY (ID)
+   PRIMARY KEY (username)
 );
-INSERT INTO ADMIN (firstname, lastname, username, email, password )VALUES ("Hossein","Hazratgholizadeh", "hosseinhgz","hossein.hazratgholizade@gmail.com", "Hh4497");
+drop table admin;
+INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("hosseinhgz","Hossein","Hazratgholizadeh","hossein.hazratgholizade@gmail.com", "Hh4497");
+INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("peterm","peter","moris","peter.moris@gmail.com", "pm4497");
 
 desc candidate;
-select * from candidateanswers;
+select * from question;
+insert into answer (id, answer) value (3,0);

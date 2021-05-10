@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">   
 <link href="../CSS/style.css" rel="stylesheet">
-<title>Insert title here</title>
+<title>result page</title>
 </head>
 <body>
  <header>
@@ -20,7 +20,7 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              <li class="nav-item">
-               <a class="nav-link" aria-current="page" href='/checkuser?logout=yes'>Log out</a>
+                  <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="#project-title">Statistics</a>
@@ -31,23 +31,41 @@
      </nav>
 </header>
 <main>
-<div class="form-container">
-<hr>
+<h1>your result</h1>
+<div class="form-container3">
 
-<h1>Update the  question ${requestScope.question.id}</h1>
-<hr>
-
-<form action='../updatequestion?id=${question.id}' method='post'>
-<div>${question.id } - 
-<input type='hidden' name="id" class="questionbox" value='${question.id }'>
-<input type='text' name='question' class="questionbox" value='${question.question }'>
-<input class="submit-button" type='submit' name='ok' value='OK'></div>
-</form>
-<div class="info-img">
-	<a href="../readquestion"><button class="button" type="button">Back to Questions</button></a>
+<ul>
+<c:forEach var="result" items="${requestScope.resultlist}">
+<div class="row">
+<div class="question-container1">
+	<li>${result.id} ** ${result.result} </li>
 </div>
 </div>
+</c:forEach>
+</ul>
 
+
+<ul>
+<c:forEach var="candidateanswer" items="${requestScope.candidateanswerlist}">
+<div class="row">
+<div class="question-container1">
+	<li>${candidateanswer.id} ** ${candidateanswer.candidateid} ** ${candidateanswer.candidateid} ** ${candidateanswer.question} - ${candidateanswer.candidateans} </li>
+	<p>${candidateanswer.comment}</p>
+</div>
+</div>
+</c:forEach>
+</ul>
+
+<ul>
+<c:forEach var="question" items="${requestScope.answerlist}">
+<div class="row">
+<div class="question-container">
+	<li>${question.id} - ${question.question} - ${question.answer} </li>
+</div>
+</div>
+</c:forEach>
+</ul>
+</div>
 </main>
 </body>
 </html>
