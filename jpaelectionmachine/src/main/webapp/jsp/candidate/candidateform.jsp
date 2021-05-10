@@ -34,32 +34,24 @@
 <main>
 <h1>Edit Candidates</h1>
 
-<div class="form-container2">
-<div class="add-candidate">
+
+<div class="form-container4">
 <hr>
 <h3>Create new Candidates</h3>
 <hr>
 
 <form action='../addcandidate' method='POST' class="candidate_form">
-<div class="row">
 	<label><b>Candidate ID</b></label>
 	<input type='text' id="idbox" class="candidatebox" name='id' value=''><br>
-</div>
-<div class="row">
-
 	<label><b>First name:</b></label>		
 	<input type='text'  class="candidatebox" name='firstname' value=''><br>
 	<label><b>Last name:</b></label>		
-	<input type='text' class="candidatebox" name='surname' value=''><br>
-</div>
-<div class="row">	
+	<input type='text' class="candidatebox" name='surname' value=''><br>	
 	<b>IKA:</b><input type='text' class="candidatebox" name='ika' value=''><br>	
 	<label><b>Location: </b></label>		
 	<input type='text' class="candidatebox" name='location' value=''><br>	
 	<label><b>Party: </b></label>		
 	<input type='text' class="candidatebox" name='party' placeholder="" value=''><br>	
-</div>
-
 	<label><b>Why Commission: </b></label>		
 	<input type='text' class="candidatebox" name='whyCommission' placeholder="" value=''><br>
 	<label><b>What ATHES Want EDES: </b></label>		
@@ -69,7 +61,7 @@
 	<input class="submit-button" type='submit' name='ok' value='OK'>
 </form>
 </div>
-
+<div class="form-container2">
 <div class="row">
 <c:forEach var="candidate" items="${requestScope.candidatelist}">
 <div class="col-sm-4">

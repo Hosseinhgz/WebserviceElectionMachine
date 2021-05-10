@@ -29,10 +29,11 @@ public class AnswerService {
 	public List<Question> readAnswer() {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
-		List<Question> list=em.createQuery("select a from Answer a").getResultList();		
+		List<Question> list=em.createQuery("select a from Question a").getResultList();		
 		em.getTransaction().commit();
 		return list;
 	}	
+	
 	
 	@PUT
 	@Path("/updateanswer")

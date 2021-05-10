@@ -52,7 +52,7 @@ public class HandleAnswer extends HttpServlet {
 		  List<Question> list2=null;
 		  list2=anscalculator(request);
 		  request.setAttribute("answerlist", list2);
-		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/question/resault.jsp");
+		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/result.jsp");
 		  rdc.forward(request, response);
 		  return;	  
 	  case "/readonequestion":

@@ -55,6 +55,17 @@ h1{
   padding-left: 10px;
   padding-top: 15px;
 } 
+.form-container4 {
+  background: #f76c6c;
+  color: #374785;
+  width: 75vw; 
+  text-align: left;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-right: 30px;
+} 
 .part1 {
   margin-top: 10px;
   border: hidden;
@@ -71,8 +82,6 @@ h1{
 }
 
 .form-container2 {
-  display: flex;
-  flex-wrap: wrap;
   background: rgba(60, 72, 77, 0.85);
   width: 95vw;
 border-radius:10px;

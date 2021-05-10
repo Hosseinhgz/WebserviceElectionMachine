@@ -76,7 +76,7 @@
      <div class="buttons" data-role="fieldcontain">
      	<input formaction='../backonequestion?id=${requestScope.question.id-1}'  type="submit" class="question-button" name="action" value="Previous"> 
 		<input formaction='../readonequestion?id=${requestScope.question.id+1}'  type="submit" class="question-button"  name="action" value="Next">
-		<input formaction='../readonequestion?id=1'  type="submit" class="question-button"  name="ok" value="Finish">
+		<input formaction='../anscalculator'  type="submit" class="question-button"  name="ok" value="Finish">
 			
      </div>	
 </form>
