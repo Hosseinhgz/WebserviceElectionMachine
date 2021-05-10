@@ -21,6 +21,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import model.Answer;
+import model.Candidateanswer;
 import data.Question;
 
 @WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers",
@@ -50,10 +51,17 @@ public class HandleAnswer extends HttpServlet {
 		  list=readanswer(request);break;
 	  case "/anscalculator":
 		  List<Question> list2=null;
-		  list2=anscalculator(request);
+		  List<Candidateanswer> list3=null;
+		  
+		  list2=readcustomeranswers(request);
+		  list3=readcandidateanswers(request);
+		  request.setAttribute("candidateanswerlist", list3);
+		  RequestDispatcher rdc2=request.getRequestDispatcher("./jsp/result.jsp");
+		  rdc2.forward(request, response);
 		  request.setAttribute("answerlist", list2);
 		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/result.jsp");
 		  rdc.forward(request, response);
+
 		  return;	  
 	  case "/readonequestion":
 		  Question q=readonequestion(request);
@@ -72,8 +80,28 @@ public class HandleAnswer extends HttpServlet {
 	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/question/showquestion.jsp");
 	  rd.forward(request, response);
   }
-	
-	  // main usage in next button***********************************************************************NEXT
+	  
+	// result/candidate/answers ****************************************************************************************
+	// this function is getting data (candidate answers and customer answer from database and do the calculation
+	// this function is returning the result for comparison	
+	  private List<Candidateanswer> readcandidateanswers(HttpServletRequest request) {			
+			// bring the question and customer answer to resault page
+			String uri = "http://127.0.0.1:8080/rest/answerservice/readcandidateanswers";
+			Client c=ClientBuilder.newClient();
+			WebTarget wt=c.target(uri);
+			Builder b=wt.request();
+			//Create a GenericType to be able to get List of objects
+			//This will be the second parameter of post method
+			GenericType<List<Candidateanswer>> genericList = new GenericType<List<Candidateanswer>>() {};		
+			List<Candidateanswer> returnedList=b.get(genericList);
+			
+			// bring the candidate answers to resault page
+			
+			return returnedList;
+	}
+
+	// questions.jsp - next - button***********************************************************************NEXT
+	// main usage in next button
 	private Question readonequestion(HttpServletRequest request) {
 		
 		// first part of function
@@ -107,7 +135,8 @@ public class HandleAnswer extends HttpServlet {
 		return question;
 	}
 
-	  // main usage in previous button***********************************************************************BACK
+	// questions.jsp - previous - button***********************************************************************BACK
+	// main usage in previous button
 	private Question backonequestion(HttpServletRequest request) {
 		
 		// first part of function
@@ -140,19 +169,23 @@ public class HandleAnswer extends HttpServlet {
 		
 		return question;
 	}
-	
-	// this function is getting data (candidate answers and customer answer from database and do the calculation
+	// result.jsp - customer - answers
+	// this function is getting data (candidate answers and customer answer from database and do the calculation*******
 	// this function is returning the result for comparison
-	private List<Question> anscalculator(HttpServletRequest request) {
+	private List<Question> readcustomeranswers(HttpServletRequest request) {
+		
+		// bring the question and customer answer to resault page
 		String uri = "http://127.0.0.1:8080/rest/answerservice/readanswer";
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
 		Builder b=wt.request();
 		//Create a GenericType to be able to get List of objects
 		//This will be the second parameter of post method
-		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
-		
+		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};		
 		List<Question> returnedList=b.get(genericList);
+		
+		// bring the candidate answers to resault page
+		
 		return returnedList;
 	}
 	

@@ -32,6 +32,18 @@ public class AnswerService {
 		List<Question> list=em.createQuery("select a from Question a").getResultList();		
 		em.getTransaction().commit();
 		return list;
+	}
+	
+	@GET
+	@Path("/readcandidateanswers")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Question> readCandidateAnswers() {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		List<Question> list=em.createQuery("select a from Candidateanswer a").getResultList();		
+		em.getTransaction().commit();
+		return list;
 	}	
 	
 	

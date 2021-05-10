@@ -101,12 +101,27 @@ border-radius:10px;
 .question-container{
   background-color: #f8e9a1;
   color: #374785;
+  width:70%;
   border-radius: 15px;
   margin:10px auto;
   text-align: left;
 height:62px;
  }
 .question-container li {
+  padding: 10px;
+  margin-left:30px
+}
+.question-container1{
+  background-color: blue;
+  color: white;
+    width:70%;
+  
+  border-radius: 15px;
+  margin:10px auto;
+  text-align: left;
+height:62px;
+ }
+.question-container1 li {
   padding: 10px;
   margin-left:30px
 }

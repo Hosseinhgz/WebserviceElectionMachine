@@ -20,7 +20,7 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              <li class="nav-item">
-               <a class="nav-link" aria-current="page" href='/checkuser?logout=yes'>Log out</a>
+                  <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="#project-title">Statistics</a>
@@ -33,11 +33,21 @@
 <main>
 <h1>your result</h1>
 <div class="form-container3">
+<ul>
+<c:forEach var="candidateanswer" items="${requestScope.candidateanswerlist}">
+<div class="row">
+<div class="question-container1">
+	<li>${candidateanswer.id} ** ${candidateanswer.candidateid} ** ${candidateanswer.candidateid} ** ${candidateanswer.question} - ${candidateanswer.candidateans} </li>
+	<p>${candidateanswer.comment}</p>
+</div>
+</div>
+</c:forEach>
+</ul>
 
 <ul>
 <c:forEach var="question" items="${requestScope.answerlist}">
 <div class="row">
-<div class="question-container col-md-8">
+<div class="question-container">
 	<li>${question.id} - ${question.question} - ${question.answer} </li>
 </div>
 </div>
