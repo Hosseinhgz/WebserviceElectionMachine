@@ -46,7 +46,7 @@
 <c:out value="${requestScope.question.id} - ${requestScope.question.question}" />
 </p>
 <!--  <form action='../readonequestion?id=${question.id+1}' method='post'>-->
-<form data-ajax="false" method="post" >
+<form data-ajax="false" method="post"  id="radioanswer">
 
 		<!--  <script>
 		function changeAction(val) {
@@ -77,13 +77,24 @@
           </div>
 
      <div class="buttons" data-role="fieldcontain">
-     	<input formaction='../backonequestion?id=${requestScope.question.id-1}'  type="submit" class="question-button" name="action" value="Previous"> 
-		<input formaction='../readonequestion?id=${requestScope.question.id+1}'  type="submit" class="question-button"  name="action" value="Next">
-		<input formaction='../anscalculator'  type="submit" class="question-button"  name="ok" value="Finish">
+     	<input formaction='../backonequestion?id=${requestScope.question.id-1}'  id="previous" type="submit" class="question-button" name="action" value="Previous"> 
+		<input formaction='../readonequestion?id=${requestScope.question.id+1}' id="next" type="submit" class="question-button"  name="action" value="Next">
+		<input formaction='../showresult'  type="submit" class="question-button"  name="ok" value="Finish">
 			
      </div>	
 </form>
 </div>
 </main>
 </body>
+<script type="text/javascript">
+	let index =  ${requestScope.question.id} ;
+	if (index==1){
+		document.getElementById("previous").disabled = true;
+	}
+	let index2 =  ${requestScope.question.id} ;
+	if (index2==19){
+		document.getElementById("next").disabled = true;
+	}
+
+</script>
 </html>

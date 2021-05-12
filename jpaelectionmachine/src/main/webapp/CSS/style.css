@@ -112,6 +112,17 @@ border-radius:10px;
   text-align: left;
 height:62px;
  }
+ .table-container{
+   background-color: #f8e9a1;
+  color: #374785;
+  width:80%;
+  border-radius: 15px;
+  margin:20px auto 30px auto;
+  text-align: center;
+  padding: 10px;
+  text-align:left;
+  
+ }
 .question-container li {
   padding: 10px;
   margin-left:30px
@@ -201,6 +212,11 @@ height:62px;
   font-weight: bold;
   border: hidden;
   text-decoration:none;
+}
+
+.question-button:disabled {
+  color: white;
+  background-color: gray;
 }
 .radio-buttons{
 	margin-left:25px;
@@ -419,4 +435,9 @@ footer {
     width: 400px;
     height: 550px;
   }
+  table {
+  background-color:red;
+  border: 1px solid black;
+  color: white;
+}
 }

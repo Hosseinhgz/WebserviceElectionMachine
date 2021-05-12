@@ -52,16 +52,19 @@ public class HandleAnswer extends HttpServlet {
 		  list=updateanswer(request);break;
 	  case "/readanswer":
 		  list=readanswer(request);break;
-	  case "/anscalculator":
-		  List<Question> qalist=null;
+	  case "/showresault":
+		  List<Question> answerlist=null;
 		  List<Candidateanswer> calist=null;
 		  double[] resultarray = new double[6];
 		  List<Result> resultlist=null;
 
+		  answerlist=readcustomeranswers(request);
+		  request.setAttribute("answerlist", answerlist);
+		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/showresult.jsp");
+		  rdc.forward(request, response);
 //		  
 //		  
 //		  double res = 0;
-//		  qalist=readcustomeranswers(request);
 //		  calist=readcandidateanswers(request);
 //		  int l = 0; 
 //		  // calculation for find the best candidates are here************************CALCULATIONS
@@ -102,9 +105,7 @@ public class HandleAnswer extends HttpServlet {
 //		  request.setAttribute("candidateanswerlist", calist);
 //		  RequestDispatcher rdc2=request.getRequestDispatcher("./jsp/result.jsp");
 //		  rdc2.forward(request, response);
-		  request.setAttribute("answerlist", qalist);
-		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/result.jsp");
-		  rdc.forward(request, response);
+
 
 		  return;	  
 	  case "/readonequestion":
