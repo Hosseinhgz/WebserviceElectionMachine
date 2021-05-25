@@ -55,8 +55,6 @@
        </div>
    </div>
 </div>	
-	<!--  <a href='../deletecandidate?id=${candidate.id}'><button class="submit-button">Delete</button></a> 
-	<a href='../readtoupdatecandidate?id=${candidate.id}'><button class="submit-button">Update</button></a>-->
 </c:forEach>
 </div>
 
