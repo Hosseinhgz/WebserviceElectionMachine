@@ -1,5 +1,5 @@
 #create database electionmachine;
-use electionmachine;
+use electionmachinejpa;
 CREATE TABLE CANDIDATE (
    ID INTEGER NOT NULL,
    	SURNAME VARCHAR (25),
@@ -12,7 +12,7 @@ CREATE TABLE CANDIDATE (
    PROFESSIONAL VARCHAR (50),
    PRIMARY KEY (ID)
 );
-
+select * from candidateanswers;
 # here is table created for candidates answers
 CREATE TABLE CANDIDATEANSWERS (
 	ID INTEGER NOT NULL auto_increment,
