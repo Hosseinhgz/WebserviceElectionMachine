@@ -81,9 +81,9 @@
 <!--  	</tbody>
 </table>
 <br>-->
+<!-- ${statistic.numAns1}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5} -->
 
-
-<c:forEach var="statistic" items="${requestScope.statisticslist}">
+<c:forEach var="statistic" items="${requestScope.statisticlist}">
 <div class="chart-container">
 <h4>Question ${statistic.question} :</h4>
     <div id="container${statistic.question}" style="width: 650px; height: 300px; margin: 0 auto"></div>
@@ -92,11 +92,11 @@
             /* Define the chart to be drawn.*/
             var data = google.visualization.arrayToDataTable([
                 ['', 'Percent'],
-                ['Completely disagree', ${statistic.numAns1}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
-                ['Disagree', ${statistic.numAns2}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
-                ['Middle opinion', ${statistic.numAns3}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
-                ['Completely agree', ${statistic.numAns4}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
-                ['Agree', ${statistic.numAns5}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
+                ['Completely disagree', ${statistic.numAns1}],
+                ['Disagree', ${statistic.numAns2}],
+                ['Middle opinion', ${statistic.numAns3}],
+                ['Completely agree', ${statistic.numAns4}],
+                ['Agree', ${statistic.numAns5}],
             ]);
             var options = {
                 title: 'Percent of choose',
