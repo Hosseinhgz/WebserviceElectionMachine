@@ -37,13 +37,14 @@ public class HandleStatistics extends HttpServlet {
 	  String action = request.getServletPath();
 	  List<Question> qalist=null;
 	  List<Candidateanswer> calist=null;
-	  List<Statistic> list= new ArrayList<Statistic>();
+	  List<Statistic> stlist= new ArrayList<Statistic>();
 
 	  switch (action) {
 	  case "/calcstatistics":
+		  qalist=readquestion(request);
+		  calist=readcandidateanswer(request);
 		  
-		  qalist=ReadQuestion(request);
-		  calist=ReadCandidateAnswer(request);
+		  
 
 			int numAns1 = 0;
 			int numAns2 = 0;
@@ -71,43 +72,46 @@ public class HandleStatistics extends HttpServlet {
 				
 				// create a statistic object for every question and add it to the list
 				Statistic s = new Statistic(i, numAns1, numAns2, numAns3, numAns4, numAns5);
-				list.add(s);			
-			};break;
+				stlist.add(s);			  
+			} 
 		  
+  
+		  
+		  
+		  break;
+
 	  }
-	  
-	  request.setAttribute("questionlist", qalist);
-	  RequestDispatcher rd=request.getRequestDispatcher("../jsp/showtest.jsp");
+	  request.setAttribute("statisticlist", stlist);
+	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/statistics.jsp");
+
 	  rd.forward(request, response);
-	  
   }
 
-	private List<Question> ReadQuestion(HttpServletRequest request) {
+		private List<Question> readquestion(HttpServletRequest request) {
+			String uri = "http://127.0.0.1:8080/rest/questionservice/readquestion";
+			Client c=ClientBuilder.newClient();
+			WebTarget wt=c.target(uri);
+			Builder b=wt.request();
+			//Create a GenericType to be able to get List of objects
+			//This will be the second parameter of post method
+			GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
+			
+			List<Question> returnedList=b.get(genericList);
+			return returnedList;
+		}
 		
-		// ***************************************
-		// read all questions and customer answers
-		String uri = "http://127.0.0.1:8080/rest/questionservice/readquestion";
-		Client c=ClientBuilder.newClient();
-		WebTarget wt=c.target(uri);
-		Builder b=wt.request();
-		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};		
-		List<Question> qalist=b.get(genericList);
-		return qalist;
-	}
 		
-		private List<Candidateanswer> ReadCandidateAnswer(HttpServletRequest request) {
-
-		// **************************************
-		// read all Candidate answers
-		String uri1 = "http://127.0.0.1:8080/rest/candidateanswerservice/readcandidateanswer";
-		Client c1=ClientBuilder.newClient();
-		WebTarget wt1=c1.target(uri1);
-		Builder b1=wt1.request();
-		GenericType<List<Candidateanswer>> genericList1 = new GenericType<List<Candidateanswer>>() {};		
-		List<Candidateanswer> calist=b1.get(genericList1);
-		return calist;
-	}
-		
-
+		private List<Candidateanswer> readcandidateanswer(HttpServletRequest request) {
+			String uri = "http://127.0.0.1:8080/rest/candidateanswerservice/readcandidateanswer";
+			Client c=ClientBuilder.newClient();
+			WebTarget wt=c.target(uri);
+			Builder b=wt.request();
+			//Create a GenericType to be able to get List of objects
+			//This will be the second parameter of post method
+			GenericType<List<Candidateanswer>> genericList = new GenericType<List<Candidateanswer>>() {};
+			
+			List<Candidateanswer> returnedList = b.get(genericList);
+			return returnedList;
+		}
 
 }

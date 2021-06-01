@@ -50,7 +50,7 @@ public class HandleCandidate extends HttpServlet {
 		  request.setAttribute("candidatelist", list);
 		  RequestDispatcher rd2=request.getRequestDispatcher("./jsp/candidate/showcandidate.jsp");
 		  rd2.forward(request, response);
-		  break;
+		  return;
 	  case "/readtoupdatecandidate":
 		  Candidate q=readtoupdatecandidate(request);
 		  request.setAttribute("candidate", q);

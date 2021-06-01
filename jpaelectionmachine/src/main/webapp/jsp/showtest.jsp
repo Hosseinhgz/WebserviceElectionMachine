@@ -36,10 +36,10 @@
 
 
 <ul>
-<c:forEach var="question" items="${requestScope.questionlist}">
+<c:forEach var="statistic" items="${requestScope.questionlist}">
 <div class="row">
 <div class="question-container1">
-	<li>${question.question}** 
+	<li>${statistic.question}** 
 </div>
 </div>
 </c:forEach>
