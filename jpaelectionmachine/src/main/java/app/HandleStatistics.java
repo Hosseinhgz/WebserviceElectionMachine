@@ -76,7 +76,7 @@ public class HandleStatistics extends HttpServlet {
 		  
 	  }
 	  
-	  request.setAttribute("statisticlist", list);
+	  request.setAttribute("questionlist", qalist);
 	  RequestDispatcher rd=request.getRequestDispatcher("../jsp/showtest.jsp");
 	  rd.forward(request, response);
 	  
