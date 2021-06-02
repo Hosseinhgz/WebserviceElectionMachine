@@ -26,7 +26,7 @@
                <a class="nav-link" aria-current="page" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/checkuser?logout=yes");} %>>
                <% if (session.getAttribute("username")==null){out.println("Login");}else{out.println("logout");} %></a>             </li>
              <li class="nav-item">
-               <a class="nav-link" href="../statistics">Statistics</a>
+               <a class="nav-link" href="../calcstatistics">Statistics</a>
              </li>
            </ul>
          </div>
@@ -40,6 +40,7 @@
 	    <hr>
 	   	<img src="../images/admin-icon.png" alt="admin icon" style="width:100px;height:100px;"><br>    
 		<a href="../readcandidate"><button class="button" type="button">Edit Candidates</button></a>
+		<a href="../createcandidate"><button class="button" type="button">Create candidate</button></a>	
 		<a href="../readquestion"><button class="button" type="button">Edit Questions</button></a>
 
 	 </div>

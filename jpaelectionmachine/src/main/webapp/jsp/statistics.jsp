@@ -39,7 +39,7 @@
                <a class="nav-link" aria-current="page" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/checkuser?logout=yes");} %>>
                <% if (session.getAttribute("username")==null){out.println("Login");}else{out.println("logout");} %></a>             </li>
              <li class="nav-item">
-               <a class="nav-link" href="../statistics">Statistics</a>
+               <a class="nav-link" href="../calcstatistics">Statistics</a>
              </li>
            </ul>
          </div>

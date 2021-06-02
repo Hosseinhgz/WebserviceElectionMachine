@@ -20,9 +20,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import data.Question;
 import model.Candidate;
 
-@WebServlet(urlPatterns = {"/addcandidate", "/deletecandidate","/updatecandidate","/readcandidate","/readtoupdatecandidate","/showcandidate","/readtomorecandidate"})
+@WebServlet(urlPatterns = {"/addcandidate", "/deletecandidate","/updatecandidate","/readcandidate","/readtoupdatecandidate","/showcandidate","/readtomorecandidate","/createcandidate"})
 public class HandleCandidate extends HttpServlet {
 
 	  @Override
@@ -62,6 +63,13 @@ public class HandleCandidate extends HttpServlet {
 		  request.setAttribute("candidate", q1);
 		  RequestDispatcher rd3=request.getRequestDispatcher("./jsp/candidate/candidatemoreinfo.jsp");
 		  rd3.forward(request, response);
+		  return;
+	  case "/createcandidate":
+		  List<Question> qulist=null;		  
+		  qulist=readquestion(request);	  
+		  request.setAttribute("questionlist", qulist);
+		  RequestDispatcher rd4=request.getRequestDispatcher("./jsp/candidate/showcreatecandidate.jsp");
+		  rd4.forward(request, response);
 		  return;
 	  }
 	  request.setAttribute("candidatelist", list);
@@ -157,6 +165,18 @@ public class HandleCandidate extends HttpServlet {
 		
 		//Posting data (Entity<ArrayList<Candidate>> e) to the given address
 		List<Candidate> returnedList=b.delete(genericList);
+		return returnedList;
+	}
+	private List<Question> readquestion(HttpServletRequest request) {
+		String uri = "http://127.0.0.1:8080/rest/questionservice/readquestion";
+		Client c=ClientBuilder.newClient();
+		WebTarget wt=c.target(uri);
+		Builder b=wt.request();
+		//Create a GenericType to be able to get List of objects
+		//This will be the second parameter of post method
+		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};
+		
+		List<Question> returnedList=b.get(genericList);
 		return returnedList;
 	}
 }
