@@ -64,7 +64,7 @@
 </div>
 
 	<div class="info-img">
-		<a href="#"><button class="button" type="button">Go to Suggestions</button></a>
+		<a href="../calcresults"><button class="button" type="button">Go to Suggestions</button></a>
 	</div>
 	
 </div>

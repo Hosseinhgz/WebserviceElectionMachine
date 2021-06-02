@@ -50,39 +50,6 @@
 <div class="form-container1">
 <h1>Statistics:</h1>
 
-<!--  <table border="1">
-	<tbody>
-		<tr>
-			<td>Question</td>
-			<td> Percent of completely disagree </td>
-			<td> Percent of disagree </td>
-			<td> Percent of Middle Opinion </td>
-			<td> Percent of Agree </td>
-			<td> Percent of completely Agree </td>
-			
-		</tr>-->
-	<%
-//		ArrayList<Statistic> List=(ArrayList<Statistic>)request.getAttribute("statisticslist");
-		
-//		for(int i = 0; i<List.size(); i++){
-//			Statistic s = List.get(i);
-// 			int calc= 100/(s.getNumAns1()+s.getNumAns2()+s.getNumAns3()+s.getNumAns4()+s.getNumAns5());
-// 			out.println("<tr>");
-// 			out.println("<td>"+s.getQuestion()+"</td>");
-// 			out.println("<td>"+s.getNumAns1()*calc+"</td>");
-// 			out.println("<td>"+s.getNumAns2()*calc+"</td>");
-// 			out.println("<td>"+s.getNumAns3()*calc+"</td>");
-// 			out.println("<td>"+s.getNumAns4()*calc+"</td>");
-// 			out.println("<td>"+s.getNumAns5()*calc+"</td>");
-// 			out.println("</tr>");
-// 		}
-
-	%>
-<!--  	</tbody>
-</table>
-<br>-->
-<!-- ${statistic.numAns1}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5}) -->
-
 <c:forEach var="statistic" items="${requestScope.statisticlist}">
 <div class="chart-container">
 <h4>Question ${statistic.question} :</h4>

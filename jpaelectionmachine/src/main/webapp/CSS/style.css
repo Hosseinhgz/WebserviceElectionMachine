@@ -112,6 +112,14 @@ border-radius:10px;
   text-align: left;
 height:62px;
  }
+ .question-container2{
+  background-color: #f8e9a1;
+  color: #374785;
+  width:70%;
+  border-radius: 5px;
+  margin:10px auto;
+  text-align: left;
+ }
  .table-container{
    background-color: #f8e9a1;
   color: #374785;

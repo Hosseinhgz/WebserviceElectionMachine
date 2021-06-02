@@ -35,15 +35,17 @@
 <div class="form-container3">
 
 
-<ul>
-<c:forEach var="statistic" items="${requestScope.questionlist}">
+<c:forEach var="result" items="${requestScope.resultlist}">
+
 <div class="row">
-<div class="question-container1">
-	<li>${statistic.question}** 
+<div class="question-container2">
+	<p>Candidate ID: ${result.candidateid} </p>
+	<p>Similarity percent: ${result.result}</p>
+	<p><a href='../readtomorecandidate?id=${candidate.id}' class="btn btn-primary">More Information</a></p>
 </div>
 </div>
 </c:forEach>
-</ul>
+
 </div>
 </main>
 </body>

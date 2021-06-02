@@ -38,17 +38,15 @@
 			<img  src="./images/Candidate${candidate.id}.jpg" style="width:400px;height:260px;border-radius:30px;">
 		</div>
 		<div class="candidate-info"><p class="info-text"><b>Candidate ID: </b>${candidate.id}</p></div>
-		<div class="candidate-info"><p class="info-text"><b>First Name: </b>${candidate.firstname}</p></div>
-		<div class="candidate-info"><p class="info-text"><b>Last Name: </b>${candidate.surname}</p></div>
+		<div class="candidate-info"><p class="info-text"><b>Complete Name: </b>${candidate.firstname} ${candidate.surname}</p></div>
 		<div class="candidate-info"><p class="info-text"><b>IKA: </b>${candidate.ika}</p></div>
 		<div class="candidate-info"><p class="info-text"><b>Location: </b>${candidate.location}</p></div>
 		<div class="candidate-info"><p class="info-text"><b>Party: </b>${candidate.party}</p></div>
 		<div class="candidate-info"><p class="info-text"><b>Profession: </b>${candidate.professional}</p></div>
 		<div class="candidate-info"><p class="info-text"><b>WHAT ATHES WANT EDES: </b>${candidate.whatAthesWantEdes}</p></div>
 		<div class="candidate-info"><p class="info-text"><b>WHY COMMISSION: </b>${candidate.whyCommission}</p></div>
-	</div>
-	<div class="info-img">
-		<a href="../showcandidate"><button class="button" type="button">Back to Candidates</button></a>
+		<p></p><br>
+		
 	</div>
 </div>
 </main>

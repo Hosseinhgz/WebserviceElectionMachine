@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">   
 <link href="../CSS/style.css" rel="stylesheet">
-<title>suggestions page</title>
+<title>result page</title>
 </head>
 <body>
  <header>
@@ -31,24 +31,21 @@
      </nav>
 </header>
 <main>
-<h1>Here are your candidate suggestions</h1>
+<h1>your Answers</h1>
 <div class="form-container3">
 
 
-<ul>
 <c:forEach var="result" items="${requestScope.resultlist}">
+
 <div class="row">
-<div class="question-container1">
-	<li>${result.id} ** ${result.result}</li>
+<div class="question-container2">
+	<p>Candidate ID: ${result.candidateid} </p>
+	<p>Similarity percent: ${result.result}</p>
+	<p><a href='../readtomorecandidate?id=${result.candidateid}' class="btn btn-primary">More Information</a></p>
 </div>
 </div>
 </c:forEach>
-</ul>
 
-	<div class="info-img">
-		<a href="#"><button class="button" type="button">Go to Suggestions</button></a>
-	</div>
-	
 </div>
 </main>
 </body>
