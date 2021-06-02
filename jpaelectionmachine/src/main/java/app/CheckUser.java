@@ -38,7 +38,6 @@ public class CheckUser extends HttpServlet {
 			HttpSession sessio=request.getSession(true);
 			sessio.invalidate();
 			sessio=null;
-
 		}
 		response.sendRedirect("/jsp/adminlogin.jsp");
 	}
@@ -57,18 +56,20 @@ public class CheckUser extends HttpServlet {
 		em.getTransaction().begin();
 		Admin q=em.find(Admin.class, username);
 		em.getTransaction().commit();
+			//Checking the user and pass (should be checked from the database)
+			if (username.compareTo(q.getUsername())==0 && password.compareTo(q.getPassword())==0) {
+				HttpSession sessio=request.getSession(true);
+				sessio.setAttribute("AuthOk", "ok");
+				sessio.setAttribute("username", username);
+
+				response.sendRedirect("/jsp/adminmain.jsp");
+			}
+			else {
+				response.sendRedirect("/jsp/adminlogin.jsp");//Or perhaps to register page
+			}
+			
+
 		
-		//Checking the user and pass (should be checked from the database)
-		if (username.compareTo(q.getUsername())==0 && password.compareTo(q.getPassword())==0) {
-			HttpSession sessio=request.getSession(true);
-			sessio.setAttribute("AuthOk", "ok");
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
-			response.sendRedirect("/jsp/adminmain.jsp");
-		}
-		else {
-			response.sendRedirect("/jsp/adminlogin.jsp");//Or perhaps to register page
-		}
 	}
 
 }

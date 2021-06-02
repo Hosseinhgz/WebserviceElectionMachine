@@ -36,7 +36,7 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              <li class="nav-item">
-               <a class="nav-link" aria-current="page" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/logout");} %>>
+               <a class="nav-link" aria-current="page" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/checkuser?logout=yes");} %>>
                <% if (session.getAttribute("username")==null){out.println("Login");}else{out.println("logout");} %></a>             </li>
              <li class="nav-item">
                <a class="nav-link" href="../statistics">Statistics</a>
@@ -63,7 +63,7 @@
                 ['Disagree', ${statistic.numAns2}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
                 ['Middle opinion', ${statistic.numAns3}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
                 ['Agree', ${statistic.numAns4}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
-                ['Completely Agree', ${statistic.numAns5}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
+                ['Completely Agree', ${statistic.numAns5}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})]
             ]);
             var options = {
                 title: 'Percent of choose',
