@@ -53,7 +53,7 @@
 <c:forEach var="statistic" items="${requestScope.statisticlist}">
 <div class="chart-container">
 <h4>Question ${statistic.question} :</h4>
-    <div id="container${statistic.question}" style="width: 650px; height: 300px; margin: 0 auto"></div>
+    <div id="container${statistic.question}" style="width: 680px; height: 300px; margin: 5px auto"></div>
     <script language="JavaScript">
         function drawChart() {
             /* Define the chart to be drawn.*/
@@ -63,7 +63,7 @@
                 ['Disagree', ${statistic.numAns2}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
                 ['Middle opinion', ${statistic.numAns3}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
                 ['Agree', ${statistic.numAns4}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
-                ['Completely Agree', ${statistic.numAns5}]
+                ['Completely Agree', ${statistic.numAns5}*100/(${statistic.numAns1}+${statistic.numAns2}+${statistic.numAns3}+${statistic.numAns4}+${statistic.numAns5})],
             ]);
             var options = {
                 title: 'Percent of choose',

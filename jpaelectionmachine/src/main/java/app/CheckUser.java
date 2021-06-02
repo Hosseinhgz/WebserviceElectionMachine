@@ -38,6 +38,7 @@ public class CheckUser extends HttpServlet {
 			HttpSession sessio=request.getSession(true);
 			sessio.invalidate();
 			sessio=null;
+
 		}
 		response.sendRedirect("/jsp/adminlogin.jsp");
 	}
@@ -61,6 +62,8 @@ public class CheckUser extends HttpServlet {
 		if (username.compareTo(q.getUsername())==0 && password.compareTo(q.getPassword())==0) {
 			HttpSession sessio=request.getSession(true);
 			sessio.setAttribute("AuthOk", "ok");
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
 			response.sendRedirect("/jsp/adminmain.jsp");
 		}
 		else {

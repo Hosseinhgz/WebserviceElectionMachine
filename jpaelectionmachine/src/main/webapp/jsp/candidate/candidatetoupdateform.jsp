@@ -34,7 +34,7 @@
 <h1>Update the  candidates ${requestScope.candidate.id}</h1>
 <form action='../updatecandidate?id=${candidate.id}' method='post'>
 <div><h3>Candidate ${requestScope.candidate.id}</h3>
-	<input type='hidden' id="idbox" class="candidatebox" name='id' value='${requestScope.candidate.id }'><br>
+	<input type='hidden' id="idbox" class="candidatebox" name='id' value='${candidate.id}'><br>
 	<label><b>First name:</b></label>		
 	<input type='text'  class="candidatebox" name='firstname' value='${requestScope.candidate.firstname }'><br>
 	<label><b>Last name:</b></label>		
