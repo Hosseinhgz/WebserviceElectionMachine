@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 import data.Question;
 import model.Candidate;
 
-@WebServlet(urlPatterns = {"/addcandidate", "/deletecandidate","/updatecandidate","/readcandidate","/readtoupdatecandidate","/showcandidate","/readtomorecandidate","/createcandidate"})
+@WebServlet(urlPatterns = {"/addcandidate", "/deletecandidate","/updatecandidate","/readcandidate","/readtoupdatecandidate","/showcandidate","/readtomorecandidate","/createcandidate","/showcreatecandidate"})
 public class HandleCandidate extends HttpServlet {
 
 	  @Override
@@ -64,7 +64,7 @@ public class HandleCandidate extends HttpServlet {
 		  RequestDispatcher rd3=request.getRequestDispatcher("./jsp/candidate/candidatemoreinfo.jsp");
 		  rd3.forward(request, response);
 		  return;
-	  case "/createcandidate":
+	  case "/showcreatecandidate":
 		  List<Question> qulist=null;		  
 		  qulist=readquestion(request);	  
 		  request.setAttribute("questionlist", qulist);
