@@ -23,12 +23,12 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import model.Answer;
-import model.Result;
+import data.Result;
 import model.Candidateanswer;
 import data.Question;
 
 @WebServlet(urlPatterns = {"/addanswer", "/deleteanswer","/updateanswer","/readanswer","/saveanswers",
-		"/readonequestion","/backonequestion","/anscalculator"})
+		"/readonequestion","/backonequestion","/showresult"})
 public class HandleAnswer extends HttpServlet {
 
 	  @Override
@@ -45,68 +45,27 @@ public class HandleAnswer extends HttpServlet {
 	  switch (action) {
 	  case "/addanswer":
 		  list=addanswer(request);break;
+		  
 	  case "/deleteanswer":
 		  String id=request.getParameter("id");
 		  list=deleteanswer(request);break;
+		  
 	  case "/updateanswer":
 		  list=updateanswer(request);break;
+		  
 	  case "/readanswer":
 		  list=readanswer(request);break;
-	  case "/anscalculator":
-		  List<Question> qalist=null;
-		  List<Candidateanswer> calist=null;
-		  double[] resultarray = new double[6];
-		  List<Result> resultlist=null;
-
-//		  
-//		  
-//		  double res = 0;
-//		  qalist=readcustomeranswers(request);
-//		  calist=readcandidateanswers(request);
-//		  int l = 0; 
-//		  // calculation for find the best candidates are here************************CALCULATIONS
-//		  for(int k = 0; k < 6; k++) {
-//
-//			  for(int i = 0; i < 6*19; i++) // i max 19 * 6
-//			  {
-//				  for(int j = 0; j < 19; i++) { // j max = 19
-//					  if(qalist.get(j).getAnswer()==0 && calist.get(i).getCandidateid()==k) {
-//						  res=res + (1-((qalist.get(j).getAnswer()-calist.get(j).getCandidateans())*0.25));
-//						  l++;
-//						  
-//					  }
-//					  double percentresult = (res/l)*100;
-//					  resultarray[0] = percentresult;
-//					  
-//				  }
-//			  } 
-//		  }
-//		  Result r1 = new Result(1,resultarray[0]);
-//		  Result r2 = new Result(1,resultarray[0]);
-//		  Result r3 = new Result(1,resultarray[0]);
-//		  Result r4 = new Result(1,resultarray[0]);
-//		  Result r5 = new Result(1,resultarray[0]);
-//		  Result r6 = new Result(1,resultarray[0]);
-//		  resultlist.add(r1);
-//		  resultlist.add(r2);
-//		  resultlist.add(r3);
-//		  resultlist.add(r4);
-//		  resultlist.add(r5);
-//		  resultlist.add(r6);
-//
-//
-//		  request.setAttribute("result", resultlist);
-//		  RequestDispatcher rdc3=request.getRequestDispatcher("./jsp/result.jsp");
-//		  rdc3.forward(request, response);
 		  
-//		  request.setAttribute("candidateanswerlist", calist);
-//		  RequestDispatcher rdc2=request.getRequestDispatcher("./jsp/result.jsp");
-//		  rdc2.forward(request, response);
-		  request.setAttribute("answerlist", qalist);
-		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/result.jsp");
-		  rdc.forward(request, response);
-
+	  case "/showresult":		// show the customer answer result in a showresult.jsp page in a table
+		  List<Question> answerlist=null;
+		  data.UserId.nextUserId();
+		  answerlist=readcustomeranswers(request);
+		  request.setAttribute("answerlist", answerlist);
+		  RequestDispatcher rdc=request.getRequestDispatcher("./jsp/showresult.jsp");
+		  rdc.forward(request, response);		  
 		  return;	  
+
+
 	  case "/readonequestion":
 		  Question q=readonequestion(request);
 		  request.setAttribute("question", q);

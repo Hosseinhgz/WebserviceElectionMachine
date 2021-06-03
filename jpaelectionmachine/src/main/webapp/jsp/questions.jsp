@@ -15,25 +15,28 @@
 <title>Questionnaire</title>
 </head>
 <body>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-light navbar-fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../index.html">Election Machine</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="../jsp/adminlogin.jsp">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#project-title">Statistics</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+ <header>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-light navbar-fixed-top">
+       <div class="container-fluid">
+         <a class="navbar-brand" href="../index.jsp">Election Machine</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+               <a class="nav-link" aria-current="page" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/checkuser?logout=yes");} %>>
+               <% if (session.getAttribute("username")==null){out.println("Login");}else{out.println("logout");} %></a></li>
+             <li class="nav-item">
+               <a class="nav-link" href="../calcstatistics">Statistics</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/jsp/adminmain.jsp");} %>>Admin</a>
+             </li>             
+           </ul>
+         </div>
+       </div>
+     </nav>
 </header>
 <main>
 <h1>Questionnaire</h1>
@@ -46,7 +49,7 @@
 <c:out value="${requestScope.question.id} - ${requestScope.question.question}" />
 </p>
 <!--  <form action='../readonequestion?id=${question.id+1}' method='post'>-->
-<form data-ajax="false" method="post" >
+<form data-ajax="false" method="post"  id="radioanswer">
 
 		<!--  <script>
 		function changeAction(val) {
@@ -77,13 +80,24 @@
           </div>
 
      <div class="buttons" data-role="fieldcontain">
-     	<input formaction='../backonequestion?id=${requestScope.question.id-1}'  type="submit" class="question-button" name="action" value="Previous"> 
-		<input formaction='../readonequestion?id=${requestScope.question.id+1}'  type="submit" class="question-button"  name="action" value="Next">
-		<input formaction='../anscalculator'  type="submit" class="question-button"  name="ok" value="Finish">
+     	<input formaction='../backonequestion?id=${requestScope.question.id-1}'  id="previous" type="submit" class="question-button" name="action" value="Previous"> 
+		<input formaction='../readonequestion?id=${requestScope.question.id+1}' id="next" type="submit" class="question-button"  name="action" value="Next">
+		<input formaction='../showresult'  type="submit" class="question-button"  name="ok" value="Finish">
 			
      </div>	
 </form>
 </div>
 </main>
 </body>
+<script type="text/javascript">
+	let index =  ${requestScope.question.id} ;
+	if (index==1){
+		document.getElementById("previous").disabled = true;
+	}
+	let index2 =  ${requestScope.question.id} ;
+	if (index2==19){
+		document.getElementById("next").disabled = true;
+	}
+
+</script>
 </html>

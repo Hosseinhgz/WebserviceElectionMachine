@@ -1,17 +1,5 @@
-questionquestion#create database electionmachine;
-use electionmachine;
-CREATE TABLE CANDIDATES (
-   CANDIDATE_ID INTEGER NOT NULL,
-   SURNAME VARCHAR (25),
-   FIRST_NAME VARCHAR (25),
-   PARTY VARCHAR (50),
-   LOCATION VARCHAR (25),
-   IKA INTEGER,
-   WHY_COMMISSION VARCHAR (250),
-   WHAT_ATHES_WANT_EDES VARCHAR (2000),
-   PROFESSIONAL VARCHAR (50),
-   PRIMARY KEY (CANDIDATE_ID)
-);
+#create database electionmachine;
+use electionmachinejpa;
 CREATE TABLE CANDIDATE (
    ID INTEGER NOT NULL,
    	SURNAME VARCHAR (25),
@@ -24,7 +12,7 @@ CREATE TABLE CANDIDATE (
    PROFESSIONAL VARCHAR (50),
    PRIMARY KEY (ID)
 );
-
+select * from candidateanswers;
 # here is table created for candidates answers
 CREATE TABLE CANDIDATEANSWERS (
 	ID INTEGER NOT NULL auto_increment,
@@ -34,7 +22,7 @@ CREATE TABLE CANDIDATEANSWERS (
    COMMENT varchar(100),
    PRIMARY KEY (ID)
 );
-select * from candidateanswer;
+select * from CANDIDATEANSWERS;
 
 #create table for customer answers
 CREATE TABLE ANSWER (
@@ -42,6 +30,8 @@ CREATE TABLE ANSWER (
    ANSWER INTEGER default 0,
    PRIMARY KEY (ID)
 );
+
+delete from candidate where id=20;
 
 # insert for customer default answers
 INSERT INTO ANSWER (ANSWER) VALUES (0);
@@ -60,15 +50,16 @@ INSERT INTO CANDIDATE VALUES (8, "Olando-Kahiluoto", "Sara", "Green Alliance", "
 INSERT INTO CANDIDATE VALUES (9, "Alasalmi", "Otto", "Finnish Social Democratic Party", "Varkaus", 30, "Finland needs new ideas and I can find them. This country needs to cooperate. I look forward, I believe in the better and I defend the weakest . "," Leaving the EU is the most important thing! I've never done paid work, so entrepreneurship is also a matter of the heart! No NATO, no EU, no TTIP, no GMO, no euro! YES INDEPENDENCE AND PEOPLE! Finland must also have a Constitutional Court that oversees what the government does and the legality of its decisions! The EEA Agreement is enough for us! It guarantees training, mobility and trade within the EU! "," Freelancer ");
 INSERT INTO CANDIDATE VALUES (10, "Alatalo", "Cosmo", " Center Party of Finland", "Tampere ", 68," I am an energetic matters common to the nurse, and I have 20 years of experience in the management of human affairs. In recent municipal elections, I received a sign of trust ääniharavan station in my city . "," Politicians do not create jobs, but constructive frameworks. The employment rate must be raised to the level of Sweden, and structural reforms in the public sector as well as in the labor market must be made to substantially reduce taxation and barriers to employment. Unnecessary rules and prohibitions on entrepreneurship and the economy. I will focus on preventing unemployment and exclusion. "," Student / Employee ");
 # CANDIDATE 11&12 are missed- something wrong in their data.
+INSERT INTO CANDIDATE VALUES (11, "Andersson" ," Cosmo "," Left "," Joensuu ", 41," I think it should be dedicated member of parliament who is freedom and social justice based on the values, strong opinions, and the ability COOPERATION. "," I'm irreligious supporter of individual freedom. NATO affirmative, supporter of nuclear power. "," Member of Parliament ");
+INSERT INTO CANDIDATE VALUES (12, "Andersson", "Essi", "Swedish People Party of Finland", "Kouvola", 63, "FINLAND ECONOMIC OUTLOOK IS A DISASTERFUL) It is important to start raising the Finnish economy. from some other alliance. "," I have a strong scientific education as a doctor of physics and as a software entrepreneur a lot of experience in society, including public administration. Vision and ability to reform is my strength. "," master builder ");
 INSERT INTO CANDIDATE VALUES (13, "Alho", "Inna", "National Coalition Party", "Kouvola", 62, "I want to promote the growth of holistic well-being without interest-oriented policy orientation.", "Promoting employment and investing in education are key to future well-being. Work is a guarantee of well-being at both the individual and collective levels. Therefore, barriers to employment must be removed. Education is the key to the future - now is the time to start developing Finnish school and learning! " ,"mixed worker ");
 INSERT INTO CANDIDATE VALUES (14, "Alhojärvi", "Mikael", "Finnish Communist Party", "Lappeenranta", 19, "Unlike Parliament, not just one, but several new perspectives.", "A fighter for fundamental rights. Transparency, reliability and keeping his promises, the jacket will not turn even after the election. "," Lieutenant Colonel evp, taxi driver ");
 INSERT INTO CANDIDATE VALUES (15, "Alho Noro "," Jasmine "," Green League "," Tampere ", 53," I am ready to run even larger structural reforms to improve Finland competitiveness. I am confident the Finns that they themselves know what is best for themselves and not so much power. "," Long-term experience in working with people - company, sports and organizers. Working in municipal politics in the 80 and 90 ... "," Photographer, ark.yo ");
 INSERT INTO CANDIDATE VALUES (16, "Alijärvi", "Daniel", "Finnish Social Democratic Party", "Helsinki", 20, "I keep my word", "Decision-making needs future MPs who are competent, cooperative, experienced and have good leadership skills.", " specialist ");
 INSERT INTO CANDIDATE VALUES (17, "Allahmoradi", "Tuomas", "Vasemmistoliitto", "Inkoo", 73, "Fär att det behäv nägon som "," Own country strawberry, other country blueberry "," Mediapastori ");
 INSERT INTO CANDIDATE VALUES (18, "Anderson", "Otto", "Swedish People Party of Finland", "Vantaa", 45, "Through my special assistant work, I have solid experience in national politics. I control the various twists and turns and get things done.", " parliament is needed pirated Technological development is the greatest force for change in society, and it must be taken into account päätäksentekoprosessissa I DI / physicist and teacher, knowledgeable contributor agriculture and forestry practitioner"," sijaispappi ");
-INSERT INTO CANDIDATE VALUES (19, "Andersson" ," Cosmo "," Left "," Joensuu ", 41," I think it should be dedicated member of parliament who is freedom and social justice based on the values, strong opinions, and the ability COOPERATION. "," I'm irreligious supporter of individual freedom. NATO affirmative, supporter of nuclear power. "," Member of Parliament ");
-INSERT INTO CANDIDATE VALUES (20, "Andersson", "Essi", "Swedish People Party of Finland", "Kouvola", 63, "FINLAND ECONOMIC OUTLOOK IS A DISASTERFUL) It is important to start raising the Finnish economy. from some other alliance. "," I have a strong scientific education as a doctor of physics and as a software entrepreneur a lot of experience in society, including public administration. Vision and ability to reform is my strength. "," master builder ");
 
+select * from candidate;
 
 # this chart created for question text
 CREATE TABLE QUESTION (
@@ -77,6 +68,8 @@ CREATE TABLE QUESTION (
    ANSWER INTEGER default 0,
    PRIMARY KEY (ID)
 );
+drop table question;
+select * from question;
 # insert values ​​into the table questions
 INSERT INTO QUESTION (QUESTION) VALUES ("It is too easy to live on social security in Finland");
 INSERT INTO QUESTION (QUESTION) VALUES ("The opening hours of trade and other shops must be liberalized.");
@@ -220,29 +213,169 @@ INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALU
 INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (6, 18, 2, "candidate 6 answer to question 18");
 INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (6, 19, 3, "candidate 6 answer to question 19");
 
-CREATE TABLE CUSTOMER_RESAULT (
-   CUSTOMER_ID INTEGER NOT NULL,
-   COMPARE_CAN1 DOUBLE,
-   COMPARE_CAN2 DOUBLE,
-   COMPARE_CAN3 DOUBLE,
-   COMPARE_CAN4 DOUBLE,
-   PRIMARY KEY (CUSTOMER_ID)
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 1, 1, "candidate 7 answer to question 1");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 2, 2, "candidate 7 answer to question 2");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 3, 1, "candidate 7 answer to question 3");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 4, 4, "candidate 7 answer to question 4");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 5, 2, "candidate 7 answer to question 5");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 6, 1, "candidate 7 answer to question 7");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 7, 2, "candidate 7 answer to question 7");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 8, 3, "candidate 7 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 9, 5, "candidate 7 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 10, 2, "candidate 7 answer to question 10");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 11, 1, "candidate 7 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 12, 3, "candidate 7 answer to question 12");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 13, 3, "candidate 7 answer to question 13");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 14, 5, "candidate 7 answer to question 14");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 15, 5, "candidate 7 answer to question 15");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 16, 4, "candidate 7 answer to question 17");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 17, 3, "candidate 7 answer to question 17");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 18, 1, "candidate 7 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 19, 1, "candidate 7 answer to question 19");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 20, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 21, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (7, 22, 0, "");
+
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 1, 5, "candidate 8 answer to question 1");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 2, 5, "candidate 8 answer to question 2");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 3, 5, "candidate 8 answer to question 3");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 4, 3, "candidate 8 answer to question 4");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 5, 4, "candidate 8 answer to question 5");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 6, 4, "candidate 8 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 7, 1, "candidate 8 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 8, 2, "candidate 8 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 9, 2, "candidate 8 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 10, 3, "candidate 8 answer to question 10");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 11, 4, "candidate 8 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 12, 2, "candidate 8 answer to question 12");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 13, 2, "candidate 8 answer to question 13");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 14, 1, "candidate 8 answer to question 14");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 15, 1, "candidate 8 answer to question 15");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 16, 1, "candidate 8 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 17, 5, "candidate 8 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 18, 2, "candidate 8 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 19, 2, "candidate 8 answer to question 19");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 20, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 21, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (8, 22, 0, "");
+
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 1, 3, "candidate 9 answer to question 1");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 2, 3, "candidate 9 answer to question 2");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 3, 1, "candidate 9 answer to question 3");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 4, 2, "candidate 9 answer to question 4");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 5, 2, "candidate 9 answer to question 5");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 6, 2, "candidate 9 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 7, 3, "candidate 9 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 8, 3, "candidate 9 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 9, 1, "candidate 8 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 10, 3, "candidate 8 answer to question 10");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 11, 5, "candidate 8 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 13, 5, "candidate 8 answer to question 13");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 14, 5, "candidate 8 answer to question 14");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 16, 3, "candidate 8 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 17, 4, "candidate 8 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 18, 5, "candidate 8 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 19, 5, "candidate 8 answer to question 19");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 20, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 21, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (9, 22, 0, "");
+
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 1, 5, "candidate 10 answer to question 1");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 2, 1, "candidate 10 answer to question 2");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 3, 2, "candidate 10 answer to question 3");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 4, 4, "candidate 10 answer to question 4");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 5, 4, "candidate 10 answer to question 5");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 6, 3, "candidate 10 answer to question 10");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 7, 1, "candidate 10 answer to question 10");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 8, 2, "candidate 10 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 9, 3, "candidate 10 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 10, 2, "candidate 10 answer to question 10");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 11, 2, "candidate 10 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 13, 3, "candidate 10 answer to question 13");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 14, 1, "candidate 10 answer to question 14");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 16, 1, "candidate 10 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 17, 1, "candidate 10 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 18, 1, "candidate 10 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 19, 1, "candidate 10 answer to question 110");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 20, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 21, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (10, 22, 0, "");
+
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 1, 1, "candidate 11 answer to question 1");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 2, 2, "candidate 11 answer to question 2");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 3, 2, "candidate 11 answer to question 3");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 4, 3, "candidate 11 answer to question 4");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 5, 4, "candidate 11 answer to question 5");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 6, 1, "candidate 11 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 7, 2, "candidate 11 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 8, 3, "candidate 11 answer to question 8");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 9, 1, "candidate 11 answer to question 9");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 10, 5, "candidate 11 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 11, 5, "candidate 11 answer to question 11");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 13, 4, "candidate 11 answer to question 13");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 14, 2, "candidate 11 answer to question 14");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 16, 2, "candidate 11 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 17, 1, "candidate 11 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 18, 2, "candidate 11 answer to question 18");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 19, 2, "candidate 11 answer to question 111");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 20, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 21, 0, "");
+INSERT INTO CANDIDATEANSWERS (CANDIDATEID, QUESTION, CANDIDATEANS, COMMENT) VALUES (11, 22, 0, "");
+select * from candidateanswers;
+CREATE TABLE STATISTICS (
+	QUESTION INTEGER NOT NULL,
+    numAns1 INTEGER NOT NULL,
+    numAns2 INTEGER,
+	numAns3 INTEGER,
+    numAns4 INTEGER,
+    numAns5 INTEGER,
+   PRIMARY KEY (QUESTION)
 );
-drop table question;
-select * from question;
+
+CREATE TABLE RESULT (
+	ID INTEGER NOT NULL auto_increment,
+   CANDIDATEID INTEGER NOT NULL,
+	CUSTOMERID INTEGER NOT NULL,
+   RESULT DOUBLE default 0,
+   PRIMARY KEY (ID)
+);
+select * from RESULT;
+SELECT * FROM RESULT ;
+SELECT COUNT(CANDIDATEANS) FROM candidateanswers WHERE QUESTION=1 and CANDIDATEANS=4;
+SELECT * FROM RESULT WHERE CUSTOMERID=4 ORDER BY RESULT DESC LIMIT 3 ;
+SELECT * FROM CANDIDATE WHERE ID in(4,4,4,4);
+#drop table question;
+select * from answer;
 
 CREATE TABLE ADMIN (
 	username VARCHAR (50) NOT NULL,
    firstname VARCHAR (50) NOT NULL,
    lastname VARCHAR (50) NOT NULL,
    email VARCHAR (100) NOT NULL,
-	password VARCHAR (50) NOT NULL,
+	password VARCHAR (100) NOT NULL,
    PRIMARY KEY (username)
 );
-drop table admin;
+select * from admin;
+SELECT * FROM ADMIN WHERE USERNAME='hosseinhgz' AND PASSWORD='Hh4497';
+DROP TABLE ADMIN;
 INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("hosseinhgz","Hossein","Hazratgholizadeh","hossein.hazratgholizade@gmail.com", "Hh4497");
 INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("peterm","peter","moris","peter.moris@gmail.com", "pm4497");
+INSERT INTO ADMIN (username,firstname, lastname, email, password )VALUES ("a","b","moris","peter.moris@gmail.com", "aaa");
 
-desc candidate;
+
 select * from question;
-insert into answer (id, answer) value (3,0);
+UPDATE QUESTION SET ANSWER=0;
+
+CREATE TABLE CUSTOMER (
+	CUSTOMERID INTEGER NOT NULL auto_increment,
+   FIRSTNAME VARCHAR (30) NOT NULL,
+   LASTNAME VARCHAR (30) NOT NULL,
+   USERNAME VARCHAR (20) NOT NULL,
+   EMAIL VARCHAR (100),
+   PHONE VARCHAR (20), 
+   PRIMARY KEY (CUSTOMERID)
+);
+INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, USERNAME, EMAIL, PHONE) VALUES ("James","Peterson","Jamesp","james.peterson@gmail.com","0403457254");
+INSERT INTO CUSTOMER (FIRSTNAME, LASTNAME, USERNAME, EMAIL, PHONE) VALUES ('Hossein','Hazratgholizadeh','hosseinhgz','hossein.hazratgholizade@gmail.com','0403771254');
+SELECT * FROM CUSTOMER;
+SELECT * FROM CUSTOMER ORDER BY CUSTOMERID DESC LIMIT 1;

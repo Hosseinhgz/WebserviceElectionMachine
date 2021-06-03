@@ -42,7 +42,30 @@ public class Candidateanswer implements Serializable {
 		this.question = Integer.parseInt(question);
 		this.comment = "candidate"+candidateid+"answer to question"+question;
 	}
-
+	public Candidateanswer(String candidateid, int question,String candidateans) {
+		super();
+		this.candidateans = Integer.parseInt(candidateans);
+		this.candidateid = Integer.parseInt(candidateid);
+		this.question =question;
+		this.comment = "candidate"+candidateid+"answer to question"+question;
+	}
+	
+	public Candidateanswer(String id, String candidateid, String question,String candidateans) {
+		super();
+		this.id = Integer.parseInt(id);
+		this.candidateans = Integer.parseInt(candidateans);
+		this.candidateid = Integer.parseInt(candidateid);
+		this.question = Integer.parseInt(question);
+		this.comment = "candidate"+candidateid+"answer to question"+question;
+	}
+	public Candidateanswer(int id, int candidateid, int question,int candidateans) {
+		super();
+		this.id = id;
+		this.candidateans = candidateans;
+		this.candidateid = candidateid;
+		this.question = question;
+		this.comment = "candidate"+candidateid+"answer to question"+question;
+	}
 	public int getId() {
 		return this.id;
 	}
