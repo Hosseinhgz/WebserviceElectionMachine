@@ -28,6 +28,9 @@
              <li class="nav-item">
                <a class="nav-link" href="../calcstatistics">Statistics</a>
              </li>
+             <li class="nav-item">
+               <a class="nav-link" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/jsp/adminmain.jsp");} %>>Admin</a>
+             </li>             
            </ul>
          </div>
        </div>
