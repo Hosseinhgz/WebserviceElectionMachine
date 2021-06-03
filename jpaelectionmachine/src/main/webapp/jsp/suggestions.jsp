@@ -40,7 +40,12 @@
 <div class="row">
 <div class="question-container2">
 	<p>Candidate ID: ${result.candidateid} </p>
-	<p>Similarity percent: ${result.result}</p>
+    <div class="card_photo">
+        <div class="demobox" id="demobox1">
+            <img src="./images/Candidate${result.candidateid}.jpg" alt="Candidate - tribute page" style="width:200px;height:130px;">
+        </div>
+    </div>
+    <p>Similarity percent: ${result.result}</p>
 	<p><a href='../readtomorecandidate?id=${result.candidateid}' class="btn btn-primary">More Information</a></p>
 </div>
 </div>
