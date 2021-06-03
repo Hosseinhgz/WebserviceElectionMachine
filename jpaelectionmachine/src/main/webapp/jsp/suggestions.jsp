@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
+
+<%@page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,13 +42,13 @@
 
 <div class="row">
 <div class="question-container2">
-	<p>Candidate ID: ${result.candidateid} </p>
+	<p >Candidate ID: ${result.candidateid} </p>
     <div class="card_photo">
         <div class="demobox" id="demobox1">
             <img src="./images/Candidate${result.candidateid}.jpg" alt="Candidate - tribute page" style="width:200px;height:130px;">
         </div>
     </div>
-    <p>Similarity percent: ${result.result}</p>
+    <p><b>Similarity percent: <fmt:formatNumber  value = ' ${result.result}' type = "number" maxFractionDigits="2" /> %</b></p>
 	<p><a href='../readtomorecandidate?id=${result.candidateid}' class="btn btn-primary">More Information</a></p>
 </div>
 </div>

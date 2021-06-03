@@ -22,7 +22,7 @@
            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              <li class="nav-item">
                <a class="nav-link" aria-current="page" href=<% if (session.getAttribute("username")==null){out.println("/jsp/adminlogin.jsp");}else{out.println("/checkuser?logout=yes");} %>>
-               <% if (session.getAttribute("username")==null){out.println("Login");}else{out.println("logout");} %></a>             </li>
+               <% if (session.getAttribute("username")==null){out.println("Login");}else{out.println("logout");} %></a></li>
              <li class="nav-item">
                <a class="nav-link" href="../calcstatistics">Statistics</a>
              </li>
@@ -32,15 +32,8 @@
      </nav>
 </header>
 <main>
-<h1>Edit Candidates</h1>
+<h1>Manage Candidates</h1>
 
-
-<div class="form-container4">
-<hr>
-<h3>Manage Candidates</h3>
-<hr>
-
-</div>
 <div class="form-container2">
 <div class="row">
 <c:forEach var="candidate" items="${requestScope.candidatelist}">
