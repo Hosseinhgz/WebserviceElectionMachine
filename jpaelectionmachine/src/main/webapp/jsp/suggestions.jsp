@@ -37,9 +37,10 @@
      </nav>
 </header>
 <main>
-<h1>your Answers</h1>
+<h1>Results with all Candidates</h1>
 <div class="form-container3">
 
+<a href='../threesuggestions'><button class="button" type="button">Best candidates</button></a>
 
 <c:forEach var="result" items="${requestScope.resultlist}">
 
