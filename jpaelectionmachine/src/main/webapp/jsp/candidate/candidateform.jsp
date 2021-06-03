@@ -37,29 +37,9 @@
 
 <div class="form-container4">
 <hr>
-<h3>Create new Candidates</h3>
+<h3>Manage Candidates</h3>
 <hr>
 
-<form action='../addcandidate' method='POST' >
-	<label><b>Candidate ID </b></label>
-	<input type='text' id="idbox" class="candidatebox" name='id' value=''><br>
-	<label><b>First name: </b></label>		
-	<input type='text'  class="candidatebox1" name='firstname' value=''><br>
-	<label><b>Last name: </b></label>		
-	<input type='text' class="candidatebox1" name='surname' value=''><br>	
-	<b>IKA:</b><input type='text' class="candidatebox" name='ika' value=''><br>	
-	<label><b>Location: </b></label>		
-	<input type='text' class="candidatebox1" name='location' value=''><br>	
-	<label><b>Party: </b></label>		
-	<input type='text' class="candidatebox1" name='party' placeholder="" value=''><br>	
-	<label><b>Why Commission: </b></label>		
-	<input type='text' class="candidatebox2" name='whyCommission' placeholder="" value=''><br>
-	<label><b>What ATHES Want EDES: </b></label>		
-	<input type='text' class="candidatebox2" name='whatAthesWantEdes' value=''><br>	
-	<label><b>Profession: </b></label>		
-	<input type='text' class="candidatebox2" name='professional' value=''><br>
-	<input class="submit-button" type='submit' name='ok' value='OK'>
-</form>
 </div>
 <div class="form-container2">
 <div class="row">

@@ -51,9 +51,7 @@ public class HandleResults extends HttpServlet {
 		  allcalist=readcandidateanswer(request);
 		  candidatelist=readcandidate(request);
 
-			
-		  
-			for(int j=1; j<=11;j++) {	
+			for(int j=1; j<=10;j++) {	
 				ArrayList<Candidateanswer> caAnslist=new ArrayList<Candidateanswer>();
 
 				for(int i=0; i<allcalist.size() ;i++) {
@@ -82,10 +80,7 @@ public class HandleResults extends HttpServlet {
 				//System.out.println("j loop");
 
 			}
-		  
-  
-		  
-		  
+		  	  
 		  break;
 
 	  }

@@ -22,6 +22,7 @@ import javax.ws.rs.core.MediaType;
 
 import data.Question;
 import model.Candidate;
+import model.Candidateanswer;
 
 @WebServlet(urlPatterns = {"/addcandidate", "/deletecandidate","/updatecandidate","/readcandidate","/readtoupdatecandidate","/showcandidate","/readtomorecandidate","/createcandidate","/showcreatecandidate"})
 public class HandleCandidate extends HttpServlet {
@@ -71,6 +72,9 @@ public class HandleCandidate extends HttpServlet {
 		  RequestDispatcher rd4=request.getRequestDispatcher("./jsp/candidate/showcreatecandidate.jsp");
 		  rd4.forward(request, response);
 		  return;
+	  case "/createcandidate":
+		  addcandidateanswer(request);
+		  list=addcandidate(request);break;	  
 	  }
 	  request.setAttribute("candidatelist", list);
 	  RequestDispatcher rd=request.getRequestDispatcher("./jsp/candidate/candidateform.jsp");
@@ -102,7 +106,6 @@ public class HandleCandidate extends HttpServlet {
 		Candidate ca=new Candidate(request.getParameter("id"), request.getParameter("surname"),request.getParameter("firstname"),
 				 request.getParameter("party"),request.getParameter("location"), request.getParameter("ika"), 
 				 request.getParameter("whyCommission"), request.getParameter("whatAthesWantEdes") , request.getParameter("professional"));
-		System.out.println(ca);
 		String uri = "http://127.0.0.1:8080/rest/candidateservice/addcandidate";
 		Client c=ClientBuilder.newClient();
 		WebTarget wt=c.target(uri);
@@ -178,5 +181,22 @@ public class HandleCandidate extends HttpServlet {
 		
 		List<Question> returnedList=b.get(genericList);
 		return returnedList;
+	}
+	private void addcandidateanswer(HttpServletRequest request) {
+		//create all answers as Candidateanswer object to send to our web-service 
+		  List<Question> qalist=null;
+		  qalist=readquestion(request);
+		for(int i=1;i<=qalist.size();i++) {
+			Candidateanswer f=new Candidateanswer(request.getParameter("id"), i, request.getParameter(Integer.toString(i)));
+			System.out.println(f);
+			String uri = "http://127.0.0.1:8080/rest/candidateanswerservice/addcandidateanswer";
+			Client c=ClientBuilder.newClient();
+			WebTarget wt=c.target(uri);
+			Builder b=wt.request();
+			Entity<Candidateanswer> e=Entity.entity(f,MediaType.APPLICATION_JSON);
+			GenericType<List<Candidateanswer>> genericList = new GenericType<List<Candidateanswer>>() {};
+			List<Candidateanswer> returnedList=b.post(e, genericList);
+		}
+		return ;
 	}
 }
